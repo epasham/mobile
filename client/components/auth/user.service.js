@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myDayAtCareApp')
+angular.module('myDayAtCampApp')
   .factory('User', function ($resource) {
     return $resource('/api/users/:id/:controller', {
       id: '@_id'

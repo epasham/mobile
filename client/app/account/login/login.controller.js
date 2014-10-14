@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myDayAtCareApp')
+angular.module('myDayAtCampApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
