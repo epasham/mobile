@@ -10,7 +10,19 @@ angular.module('myDayAtCampApp')
 
       if(form.$valid) {
         Auth.createUser({
-          name: $scope.user.name,
+          firstName: $scope.user.name,
+          lastName: $scope.user.name,
+          address: $scope.user.address,
+          homePhone: $scope.user.homePhone,
+          workPhone: $scope.user.workPhone,
+          cellPhone: $scope.user.cellPhone,
+          workAddress: $scope.user.workAddress,
+          jobTitle: $scope.user.jobTitle,
+          income: $scope.user.income,
+          dob: $scope.user.dob,
+          relationship: $scope.user.relationship,
+          classLevel: $scope.user.classLevel,
+          role: $scope.user.role,
           email: $scope.user.email,
           password: $scope.user.password
         })
