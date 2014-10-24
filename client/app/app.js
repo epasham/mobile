@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myDayAtCampApp', [
+angular.module('myDayAtCareApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',

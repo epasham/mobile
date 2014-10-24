@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myDayAtCampApp')
+angular.module('myDayAtCareApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {
