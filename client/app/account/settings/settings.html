@@ -3,6 +3,26 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
+      <h1>User Info</h1>
+    </div>
+    <div class="col-sm-12">
+      <p>Name: {{currentUser.firstName}} {{currentUser.lastName}}</p>
+      <p>Date of Birth: {{currentUser.dob}}</p>
+      <p>Email Address: {{currentUser.email}}</p>
+      <p>Role: {{currentUser.role}}</p>
+      <h4>Contact Info</h4>
+      <p>Home Address: {{currentUser.address}}</p>
+      <p>Home phone: {{currentUser.homePhone}}</p>
+      <p>Cell phone: {{currentUser.cellPhone}}</p>      
+      <h4>Work Info</h4>
+      <p>Job Title: {{currentUser.jobTitle}}</p>
+      <p>Income: {{currentUser.income}}</p>
+      <p>Work Address: {{currentUser.workAddress}}</p>
+      <p>Work Phone: {{currentUser.workPhone}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
       <h1>Change Password</h1>
     </div>
     <div class="col-sm-12">
@@ -34,26 +54,6 @@
 
         <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
       </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>User Info</h1>
-    </div>
-    <div class="col-sm-12">
-      <p>Name: {{currentUser.firstName}} {{currentUser.lastName}}</p>
-      <p>Date of Birth: {{currentUser.dob}}</p>
-      <p>Email Address: {{currentUser.email}}</p>
-      <p>Role: {{currentUser.role}}</p>
-      <h4>Contact Info</h4>
-      <p>Home Address: {{currentUser.address}}</p>
-      <p>Home phone: {{currentUser.homePhone}}</p>
-      <p>Cell phone: {{currentUser.cellPhone}}</p>      
-      <h4>Work Info</h4>
-      <p>Job Title: {{currentUser.jobTitle}}</p>
-      <p>Income: {{currentUser.income}}</p>
-      <p>Work Address: {{currentUser.workAddress}}</p>
-      <p>Work Phone: {{currentUser.workPhone}}</p>
     </div>
   </div>
 </div>
