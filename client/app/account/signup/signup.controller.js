@@ -10,8 +10,8 @@ angular.module('myDayAtCareApp')
 
       if(form.$valid) {
         Auth.createUser({
-          firstName: $scope.user.name,
-          lastName: $scope.user.name,
+          firstName: $scope.user.firstName,
+          lastName: $scope.user.lastName,
           address: $scope.user.address,
           homePhone: $scope.user.homePhone,
           workPhone: $scope.user.workPhone,

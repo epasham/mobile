@@ -18,7 +18,6 @@ var UserSchema = new Schema({
   dob: String,
   relationship: String,
   classLevel: String,
-  name: String,
   email: { type: String, lowercase: true },
   role: {
     type: String,
@@ -52,8 +51,8 @@ UserSchema
   .virtual('profile')
   .get(function() {
     return {
-      'firstName': this.name,
-      'lastName': this.name,
+      'firstName': this.firstName,
+      'lastName': this.lastName,
       'address': this.address,
       'homePhone': this.homePhone,
       'workPhone': this.workPhone,
@@ -64,7 +63,6 @@ UserSchema
       'dob': this.dob,
       'relationship': this.relationship,
       'classLevel': this.classLevel,
-      'name': this.name,
       'role': this.role
     };
   });
