@@ -78,6 +78,26 @@ exports.changePassword = function(req, res, next) {
     }
   });
 };
+/**
+ * Change a users info
+ */
+exports.changeUser = function(req, res, next) {
+  var userId = req.user._id;
+  var oldInfo = String(req.body.oldUser);
+  var newInfo = String(req.body.newUser);
+
+  User.findById(userId, function (err, user) {
+    if(user.authenticate(oldInfo)) {
+      user = newInfo;
+      user.save(function(err) {
+        if (err) return validationError(res, err);
+        res.send(200);
+      });
+    } else {
+      res.send(403);
+    }
+  });
+};
 
 /**
  * Get my info

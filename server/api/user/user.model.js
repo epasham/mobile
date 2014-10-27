@@ -6,6 +6,18 @@ var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
+  firstName: String,
+  lastName: String,
+  address: String,
+  homePhone: String,
+  workPhone: String,
+  cellPhone: String,
+  workAddress: String,
+  jobTitle: String,
+  income: String,
+  dob: String,
+  relationship: String,
+  classLevel: String,
   name: String,
   email: { type: String, lowercase: true },
   role: {
@@ -40,6 +52,18 @@ UserSchema
   .virtual('profile')
   .get(function() {
     return {
+      'firstName': this.name,
+      'lastName': this.name,
+      'address': this.address,
+      'homePhone': this.homePhone,
+      'workPhone': this.workPhone,
+      'cellPhone': this.cellPhone,
+      'workAddress': this.workAddress,
+      'jobTitle': this.jobTitle,
+      'income': this.income,
+      'dob': this.dob,
+      'relationship': this.relationship,
+      'classLevel': this.classLevel,
       'name': this.name,
       'role': this.role
     };
