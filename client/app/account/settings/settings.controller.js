@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('myDayAtCareApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, $cookieStore) {
     $scope.errors = {};
-
+    // $scope.getCurrentUser = Auth.getCurrentUser;
+    // var currentUser = {};
+    // if($cookieStore.get('token')) {
+    //   currentUser = User.get();
+    // }
+    $scope.currentUser =  User.get();
     $scope.changePassword = function(form) {
       $scope.submitted = true;
       if(form.$valid) {

@@ -38,7 +38,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h1>User{{ user.profile }}{{ currentUser }}</h1>
+      <h1>User{{ user.email }} .. {{ currentUser.email }} .. {{ getCurrentUser.email }}</h1>
     </div>
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
