@@ -9,7 +9,11 @@ module.exports = function(grunt) {
   var appConfig = {
     app: require('./bower.json').appPath || 'www'
   };
-
+  var _ = require('lodash');
+  var path = require('path');
+  var cordova = require('cordova');
+  var spawn = require('child_process').spawn;
+  var process = require('child_process');
   // Project configuration.
   grunt.initConfig({
     yeoman: appConfig,
@@ -255,31 +259,29 @@ module.exports = function(grunt) {
   });
 
   // Register tasks for all Cordova commands
-  _.functions(cordovaCli).forEach(function(name) {
-    grunt.registerTask(name, function() {
-      this.args.unshift(name.replace('cordova:', ''));
-      // Handle URL's being split up by Grunt because of `:` characters
-      if (_.contains(this.args, 'http') || _.contains(this.args, 'https')) {
-        this.args = this.args.slice(0, -2).concat(_.last(this.args, 2).join(':'));
-      }
-      var done = this.async();
-      var exec = process.platform === 'win32' ? 'cordova.cmd' : 'cordova';
-      var cmd = path.resolve('./node_modules/cordova/bin', exec);
-      var flags = process.argv.splice(3);
-      var child = spawn(cmd, this.args.concat(flags));
-      child.stdout.on('data', function(data) {
-        grunt.log.writeln(data);
-      });
-      child.stderr.on('data', function(data) {
-        grunt.log.error(data);
-      });
-      child.on('close', function(code) {
-        code = code ? false : true;
-        done(code);
-      });
-    });
-  });
-
+     _.functions(cordova).forEach(function (name) {
+            name = (name === 'build') ? 'cordova:build' : name;
+            grunt.registerTask(name, function () {
+              this.args.unshift(name.replace('cordova:', ''));
+              // Handle URL's being split up by Grunt because of `:` characters
+              if (_.contains(this.args, 'http') || _.contains(this.args, 'https')) {
+                this.args = this.args.slice(0, -2).concat(_.last(this.args, 2).join(':'));
+              }
+              var done = this.async();
+              var cmd = path.resolve('./node_modules/cordova/bin', 'cordova');
+              var child = spawn(cmd, this.args);
+              child.stdout.on('data', function (data) {
+                grunt.log.writeln(data);
+              });
+              child.stderr.on('data', function (data) {
+                grunt.log.error(data);
+              });
+              child.on('close', function (code) {
+                code = (name === 'cordova:build') ? true : code ? false : true;
+                done(code);
+              });
+            });
+          });
   grunt.registerTask('ripple', ['ripple-emulator']);
   grunt.registerTask('ripple-emulator', function() {
     grunt.config.set('watch', {

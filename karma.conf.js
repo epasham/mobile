@@ -26,6 +26,8 @@ module.exports = function(config) {
       'www/bower_components/angular-sanitize/angular-sanitize.js',
       'www/bower_components/angular-route/angular-route.js',
       'www/bower_components/ngCordova/dist/ng-cordova.js',
+      'www/bower_components/restangular/dist/restangular.js',
+      'www/bower_components/lodash/dist/lodash.js',
       'www/bower_components/ng-cordova-mocks/dist/ngCordovaMocks.js',
       'www/app/app.js',
       'www/app/**/*.js'
