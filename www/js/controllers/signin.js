@@ -24,7 +24,7 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', 'Restangula
     var getUserInfo = function() {
       Restangular.all('account').post("user", $scope.user.token).then(function(response) {
         $scope.user = response.data;
-        $state.go('app.dashboard-v1');
+        $state.go('app.dashboard');
       });
     };
 

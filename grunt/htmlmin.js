@@ -2,7 +2,7 @@ module.exports = {
 	min: {
       files: [{
           expand: true,
-          cwd: 'src/tpl/',
+          cwd: 'www/tpl/',
           src: ['*.html', '**/*.html'],
           dest: 'dist/tpl/',
           ext: '.html',

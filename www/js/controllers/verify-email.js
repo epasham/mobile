@@ -1,7 +1,7 @@
 'use strict';
 
 // verify email controller
-app.controller('VerifyEmailController', ['$scope', '$http', '$state', function($scope, $http, $state) {
+app.controller('VerifyEmailController', ['$scope', '$http', '$state', 'Restangular', function($scope, $http, $state, Restangular) {
     $scope.user = {};
     $scope.authError = null;
     $scope.verificationSent = false;

@@ -30,26 +30,35 @@ angular.module('app')
           })
           
           $urlRouterProvider
-              .otherwise('/app/dashboard-v1');
+              .otherwise('/app/dashboard');
           $stateProvider
               .state('app', {
                   abstract: true,
                   url: '/app',
                   templateUrl: 'tpl/app.html'
               })
-              .state('app.verify-email', {
+              .state('access.verify-email', {
                   url: '/verify-email',
-                  templateUrl: 'tpl/page_verify_email.html'
+                  templateUrl: 'tpl/page_verify_email.html',
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['js/controllers/verify-email.js'] );
+                      }]
                   }
               })
-              .state('app.dashboard-v1', {
-                  url: '/dashboard-v1',
-                  templateUrl: 'tpl/app_dashboard_v1.html',
+              .state('app.dashboard', {
+                  url: '/dashboard',
+                  templateUrl: 'tpl/app_dashboard.html',
                   resolve: {
-                    deps: ['$ocLazyLoad',
-                      function( $ocLazyLoad ){
-                        return $ocLazyLoad.load(['js/controllers/chart.js']);
-                    }]
+                      deps: ['$ocLazyLoad',
+                        function( $ocLazyLoad ){
+                          return $ocLazyLoad.load('ui.select').then(
+                              function(){
+                                  return $ocLazyLoad.load(['js/controllers/chart.js', 'js/controllers/select.js']);
+                              }
+                          );
+                      }]
                   }
               })
               .state('app.dashboard-v2', {

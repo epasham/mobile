@@ -13,10 +13,10 @@
     }
   },
   "generator-ng-component": {
-    "routeDirectory": "www/app/",
-    "directiveDirectory": "www/app/",
-    "filterDirectory": "www/app/",
-    "serviceDirectory": "www/app/",
+    "routeDirectory": "www/js/app/",
+    "directiveDirectory": "www/js/app/directives/",
+    "filterDirectory": "www/js/app/filters/",
+    "serviceDirectory": "www/js/app/services/",
     "basePath": "www",
     "moduleName": "",
     "filters": [

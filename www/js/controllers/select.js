@@ -32,6 +32,9 @@ app.filter('propsFilter', function() {
     };
 })
 app.controller('SelectCtrl', function($scope, $http, $timeout) {
+        $scope.currentChild.selected = undefined;
+        $scope.currentClass.selected = undefined;
+
         $scope.disabled = undefined;
         $scope.searchEnabled = undefined;
 

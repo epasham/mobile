@@ -1,5 +1,5 @@
       <!-- navbar header -->
-      <div class="navbar-header {{app.settings.navbarHeaderColor}}">
+      <div class="navbar-header bg-white">
         <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
           <i class="glyphicon glyphicon-cog"></i>
         </button>
@@ -8,16 +8,15 @@
         </button>
         <!-- brand -->
         <a href="#/" class="navbar-brand text-lt">
-          <i class="fa fa-btc"></i>
-          <img src="img/logo.png" alt="." class="hide">
-          <span class="hidden-folded m-l-xs">{{app.name}}</span>
+          <img src="img/logo.png" alt="My Day at Care" ng-show="!app.settings.asideFolded">
+          <img src="img/icon.png" alt="My Day at Care" ng-show="app.settings.asideFolded">
         </a>
         <!-- / brand -->
       </div>
       <!-- / navbar header -->
 
       <!-- navbar collapse -->
-      <div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+      <div class="collapse pos-rlt navbar-collapse box-shadow bg-white">
         <!-- buttons -->
         <div class="nav navbar-nav hidden-xs">
           <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
@@ -233,7 +232,7 @@
                 <img src="img/a0.jpg" alt="...">
                 <i class="on md b-white bottom"></i>
               </span>
-              <span class="hidden-sm hidden-md">John.Smith</span> <b class="caret"></b>
+              <span class="hidden-sm hidden-md">{{user.first_name}} {{user.last_name}}</span> <b class="caret"></b>
             </a>
             <!-- dropdown -->
             <ul class="dropdown-menu animated fadeInRight w">

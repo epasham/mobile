@@ -1,1 +1,1 @@
-{"datetime":"2014-11-09T22:02:57.464Z","fileschecked":1,"filessucceeded":1,"failed":[]}
+{"datetime":"2014-11-10T14:40:46.120Z","fileschecked":4,"filessucceeded":0,"failed":[{"filepath":"www/angular-stripped.html","numerrs":1,"errors":[{"line":0,"col":0,"msg":"Unable to validate file"}]}]}

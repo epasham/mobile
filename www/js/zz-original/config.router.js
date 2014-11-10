@@ -17,15 +17,15 @@ angular.module('app')
       function ($stateProvider,   $urlRouterProvider) {
           
           $urlRouterProvider
-              .otherwise('/app/dashboard-v1');
+              .otherwise('/app/dashboard');
           $stateProvider
               .state('app', {
                   abstract: true,
                   url: '/app',
                   templateUrl: 'tpl/app.html'
               })
-              .state('app.dashboard-v1', {
-                  url: '/dashboard-v1',
+              .state('app.dashboard', {
+                  url: '/dashboard',
                   templateUrl: 'tpl/app_dashboard_v1.html',
                   resolve: {
                     deps: ['$ocLazyLoad',

@@ -13,20 +13,25 @@
         </div>
         <div class="col-sm-6 text-right hidden-xs">
           <div class="inline m-r text-left">
-            <div class="m-b-xs">1290 <span class="text-muted">items</span></div>
-            <div ng-init="data1=[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ]" 
-              ui-jq="sparkline" 
-              ui-options="{{data1}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
-              class="sparkline inline">loading...
-            </div>
-          </div>
-          <div class="inline text-left">
-            <div class="m-b-xs">$30,000 <span class="text-muted">revenue</span></div>
-            <div ng-init="data2=[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ]" 
-              ui-jq="sparkline" 
-              ui-options="{{data2}}, {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}" 
-              class="sparkline inline">loading...
-            </div>
+            <form class="form-horizontal">
+              <fieldset>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label text-left">{{selectedChild}}</label>
+                  <div class="col-sm-6">
+
+                    <ui-select ng-model="currentChild.selected" theme="bootstrap">
+                      <ui-select-match placeholder="Select a child">{{$select.selected.first_name}} {{$select.selected.last_name}}</ui-select-match>
+                      <ui-select-choices repeat="child in children | filter: $select.search">
+                        <span ng-bind-html="child.first_name  | highlight: $select.search"></span>
+                        <span ng-bind-html="child.last_name | highlight: $select.search"></span>
+                      </ui-select-choices>
+                    </ui-select>
+
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+
           </div>
         </div>
       </div>

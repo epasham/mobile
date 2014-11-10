@@ -129,7 +129,7 @@ module.exports = function(grunt) {
       },
       devCordovaApp: {
         src: [
-          '<%= yeoman.app %>/app/app.js'
+          '<%= yeoman.app %>/js/app.js'
         ],
         overwrite: true,
         replacements: [{
@@ -139,7 +139,7 @@ module.exports = function(grunt) {
       },
       cleanCordovaApp: {
         src: [
-          '<%= yeoman.app %>/app/app.js'
+          '<%= yeoman.app %>/js/app.js'
         ],
         overwrite: true,
         replacements: [{
@@ -149,7 +149,7 @@ module.exports = function(grunt) {
       }
     },
     inlinelint: {
-      html: ['<%= yeoman.app %>/app/**/*.html', '<%= yeoman.app %>/index.html']
+      html: ['<%= yeoman.app %>/tpl/*.html', '<%= yeoman.app %>/tpl/blocks/*.html', '<%= yeoman.app %>/index.html']
     },
     csslint: {
       strict: {
@@ -159,23 +159,23 @@ module.exports = function(grunt) {
         src: ['<%= yeoman.app %>/assets/**/*.css']
       }
     },
-    htmlangular: {
-      options: {
-        reportPath: null,
-        customattrs: ['*'],
-        relaxerror: [
-          'Element head is missing a required instance of child element title.',
-          'Element comma not allowed as child of element span in this context.',
-          'A select element with a required attribute and without a multiple attribute, and whose size is 1, must have a child option element.',
-          'Element img is missing required attribute src.',
-          'The datetime-local input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.',
-          'The date input type is not supported in all browsers. Please be sure to test, and consider using a polyfill',
-          'An img element must have an alt attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.',
-          'Bad value custom-date for attribute type on element input.'
-        ]
+    less: {
+      development: {
+        options: {
+          paths: ['<%= yeoman.app %>/css/less']
+        },
+        files: {
+          '<%= yeoman.app %>/css/app.css': '<%= yeoman.app %>/css/less/app.less'
+        }
       },
-      files: {
-        src: ['<%= yeoman.app %>/app/**/*.html']
+      production: {
+        options: {
+          paths: ["assets/css"],
+          cleancss: true,
+        },
+        files: {
+          "<%= yeoman.app %>/assets/css/app.css": "<%= yeoman.app %>/assets/css/less/app.less"
+        }
       }
     },
     injector: {
@@ -194,7 +194,7 @@ module.exports = function(grunt) {
         files: {
           '<%= yeoman.app %>/index.html': [
             ['<%= yeoman.app %>/{app,components}/**/*.js',
-              '!<%= yeoman.app %>/app/app.js',
+              '!<%= yeoman.app %>/js/app.js',
               '!<%= yeoman.app %>/{app,components}/**/*.spec.js',
               '!<%= yeoman.app %>/{app,components}/**/*.mock.js'
             ]
@@ -221,7 +221,7 @@ module.exports = function(grunt) {
           '<%= yeoman.app %>/{app,components}/**/*.js',
           '!<%= yeoman.app %>/{app,components}/**/*.spec.js',
           '!<%= yeoman.app %>/{app,components}/**/*.mock.js',
-          '!<%= yeoman.app %>/app/app.js'
+          '!<%= yeoman.app %>/js/app.js'
         ],
         tasks: ['injector:scripts']
       },
@@ -234,14 +234,14 @@ module.exports = function(grunt) {
         tasks: ['jshint:gruntfile']
       },
       js: {
-        files: ['<%= yeoman.app %>/app/**/*.js'],
+        files: ['<%= yeoman.app %>/js/**/*.js'],
         tasks: ['newer:jshint', 'karma'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
       },
       html: {
-        files: ['<%= yeoman.app %>/app/**/*.html', '<%= yeoman.app %>/index.html'],
+        files: ['<%= yeoman.app %>/js/**/*.html', '<%= yeoman.app %>/index.html'],
         tasks: ['newer:inlinelint'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -257,7 +257,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
   // Register tasks for all Cordova commands
      _.functions(cordova).forEach(function (name) {
             name = (name === 'build') ? 'cordova:build' : name;
@@ -311,10 +310,10 @@ module.exports = function(grunt) {
   // grunt.registerTask('default', ['jshint', 'karma']);
   grunt.registerTask('serve', [
     'inlinelint',
+    'less',
     'csslint',
     'jshint',
     'karma',
-    'htmlangular',
     'cordova:clean',
     'injector',
     'wiredep',

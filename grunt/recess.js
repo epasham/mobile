@@ -1,8 +1,8 @@
 module.exports = {
 	app: {
         files: {
-          'src/css/app.css': [
-            'src/css/less/app.less'
+          'www/css/app.css': [
+            'www/css/less/app.less'
           ]
         },
         options: {
@@ -12,8 +12,8 @@ module.exports = {
     min: {
         files: {
             'dist/css/app.min.css': [
-                'src/css/bootstrap.css',
-                'src/css/*.css'
+                'www/css/bootstrap.css',
+                'www/css/*.css'
             ]
         },
         options: {

@@ -1,7 +1,7 @@
 'use strict';
 
 // signup controller
-app.controller('SignupFormController', ['$scope', '$http', '$state', function($scope, $http, $state) {
+app.controller('SignupFormController', ['$scope', '$http', '$state', 'Restangular', function($scope, $http, $state, Restangular) {
     $scope.user = {};
     $scope.authError = null;
     $scope.signup = function() {
@@ -11,7 +11,7 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', function($s
         if ( !response.data ) {
           $scope.authError = response;
         }else{
-          $state.go('app.dashboard-v1');
+          $state.go('app.dashboard');
         }
       }, function(x) {
         $scope.authError = 'Server Error';
