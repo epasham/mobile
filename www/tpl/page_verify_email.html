@@ -8,12 +8,12 @@
       <div class="text-danger wrapper text-center" ng-show="authError">
           {{authError}}
       </div>
-      <div class="list-group list-group-sm">
+      <div class="list-group list-group-sm" ng-show="!success">
         <div class="list-group-item">
           <input type="email" placeholder="Email" class="form-control no-border" ng-model="user.email" required>
         </div>
       </div>
-      <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="verifyEmail()" ng-disabled='form.$invalid'>Resend</button>
+      <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="verifyEmail()" ng-disabled='form.$invalid' ng-show="!success">Resend</button>
       <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
       <div class="line line-dashed"></div>
       <p class="text-center"><small>Do not have an account?</small></p>
