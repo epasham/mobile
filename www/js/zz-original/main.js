@@ -16,13 +16,13 @@ angular.module('app')
         version: '1.3.2',
         // for chart colors
         color: {
-          primary: '#7266ba',
-          info:    '#23b7e5',
-          success: '#27c24c',
-          warning: '#fad733',
-          danger:  '#f05050',
+          primary: '#602b60',
+          info:    '#25b6b1',
+          success: '#a0b423',
+          warning: '#f8ca01',
+          danger:  '#bd1e52',
           light:   '#e8eff0',
-          dark:    '#3a3f51',
+          dark:    '#2e313d',
           black:   '#1c2b36'
         },
         settings: {

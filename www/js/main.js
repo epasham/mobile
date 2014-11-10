@@ -11,23 +11,23 @@ angular.module('app')
       isSmartDevice( $window ) && angular.element($window.document.body).addClass('smart');
       
       //remove when api works
-      $scope.user = {
-          id: 100,
-          first_name: "John",
-          last_name: "Doe",
-          email_address: "example@example.com",
-          home_phone: "555-555-5555",
-          cell_phone: "555-555-5556",
-          home_address: "2004 Nowhere Lane",
-          home_state: "MD",
-          home_zip: 21113,
-          work_phone: "555-555-5556",
-          work_address: "2004 Nowhere Lane",
-          work_state: "MD",
-          work_zip: 21113,
-          job_title: "Some Title",
-          type: "Parent"
-      };
+      // $scope.user = {
+      //     id: 100,
+      //     first_name: "John",
+      //     last_name: "Doe",
+      //     email_address: "example@example.com",
+      //     home_phone: "555-555-5555",
+      //     cell_phone: "555-555-5556",
+      //     home_address: "2004 Nowhere Lane",
+      //     home_state: "MD",
+      //     home_zip: 21113,
+      //     work_phone: "555-555-5556",
+      //     work_address: "2004 Nowhere Lane",
+      //     work_state: "MD",
+      //     work_zip: 21113,
+      //     job_title: "Some Title",
+      //     type: "Parent"
+      // };
       $scope.children = [{
           id: 101,    // child_id ?
           first_name: "Mary",
@@ -83,24 +83,24 @@ angular.module('app')
       // end remove
       // config
       $scope.app = {
-        name: 'Angulr',
+        name: 'My Day at Care',
         version: '1.3.2',
         // for chart colors
         color: {
-          primary: '#7266ba',
-          info:    '#23b7e5',
-          success: '#27c24c',
-          warning: '#fad733',
-          danger:  '#f05050',
-          light:   '#e8eff0',
-          dark:    '#3a3f51',
+          primary: '#602b60', // 7266ba
+          info:    '#25b6b1', // 23b7e5
+          success: '#a0b423', // 27c24c
+          warning: '#f8ca01', // fad733
+          danger:  '#bd1e52', // f05050
+          light:   '#e8eff0', 
+          dark:    '#2e313d', // 3a3f51
           black:   '#1c2b36'
         },
         settings: {
           themeID: 1,
-          navbarHeaderColor: 'bg-black',
+          navbarHeaderColor: 'bg-white',
           navbarCollapseColor: 'bg-white-only',
-          asideColor: 'bg-black',
+          asideColor: 'bg-white',
           headerFixed: true,
           asideFixed: false,
           asideFolded: false,
