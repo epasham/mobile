@@ -13,8 +13,21 @@ angular.module('app')
     ]
   )
   .config(
-    [          '$stateProvider', '$urlRouterProvider',
-      function ($stateProvider,   $urlRouterProvider) {
+    [          '$stateProvider', '$urlRouterProvider', 'RestangularProvider',
+      function ($stateProvider,   $urlRouterProvider, RestangularProvider) {
+          RestangularProvider.setBaseUrl('https://54.69.129.186:5000/');
+          RestangularProvider.setRestangularFields({
+            id: '_id.$oid'
+          });
+          
+          RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
+            
+            if (operation === 'put') {
+              elem._id = undefined;
+              return elem;
+            }
+            return elem;
+          })
           
           $urlRouterProvider
               .otherwise('/app/dashboard-v1');
@@ -23,6 +36,11 @@ angular.module('app')
                   abstract: true,
                   url: '/app',
                   templateUrl: 'tpl/app.html'
+              })
+              .state('app.verify-email', {
+                  url: '/verify-email',
+                  templateUrl: 'tpl/page_verify_email.html'
+                  }
               })
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
