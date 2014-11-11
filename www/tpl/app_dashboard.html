@@ -15,31 +15,16 @@
           <div class="inline m-r text-left">
             <form class="form-horizontal">
               <fieldset>
-                <div class="form-group">
-<!--                   <label class="col-sm-3 control-label text-left">{{ currentChild.selected.id }}</label>
-
-                    <ui-select ng-model="currentChild.selected" theme="bootstrap">
-                      <ui-select-match placeholder="Select a child">{{$select.selected.first_name}} {{$select.selected.last_name}}</ui-select-match>
-                      <ui-select-choices repeat="child.id as child in children | filter: $select.search">
-                        <span ng-bind-html="child.first_name  | highlight: $select.search"></span>
-                        <span ng-bind-html="child.last_name | highlight: $select.search"></span>
-                      </ui-select-choices>
-                    </ui-select>
- -->
- <p>Selected: {{currentChild}}</p>
-  <ui-select ng-model="currentChild.selected" theme="bootstrap" ng-disabled="disabled" style="min-width: 300px;">
-    <ui-select-match placeholder="Select a child in the list or search his name/age...">{{$select.selected.first_name}}</ui-select-match>
-    <ui-select-choices repeat="child in children | propsFilter: {first_name: $select.search, last_name: $select.search}">
-      <div ng-bind-html="child.first_name | highlight: $select.search"></div>
-      <small>
-        email: {{child.last_name}}
-        age: <span ng-bind-html="''+child.first_name | highlight: $select.search"></span>
-      </small>
-    </ui-select-choices>
-  </ui-select>                  </div>
+                <div class="form-group" ng-controller="SelectCtrl">
+                  <ui-select ng-model="child.selected" theme="bootstrap" on-select="someFunction($item, $model)" ng-disabled="disabled" style="min-width: 300px;">
+                    <ui-select-match placeholder="Select a child in the list or search his name/age...">{{$select.selected.first_name}}</ui-select-match>
+                    <ui-select-choices repeat="child in children | propsFilter: {first_name: $select.search, last_name: $select.search}">
+                      <div ng-bind-html="child.first_name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
               </fieldset>
             </form>
-
           </div>
         </div>
       </div>
@@ -51,9 +36,9 @@
         <div class="col-md-5">
           <div class="row row-sm text-center">
             <div class="col-xs-6">
-              <div class="panel padder-v item">
-                <div class="h1 text-info font-thin h1">521</div>
-                <span class="text-muted text-xs">New items</span>
+              <div class="panel padder-v item bg-danger block">
+                <div class="text-white font-thin h1 block">{{child.selected.stock.diapers}}</div>
+                <span class="text-muted text-xs">DIAPERS</span>
                 <div class="top text-right w-full">
                   <i class="fa fa-caret-down text-warning m-r-sm"></i>
                 </div>
@@ -61,8 +46,8 @@
             </div>
             <div class="col-xs-6">
               <a href class="block panel padder-v bg-primary item">
-                <span class="text-white font-thin h1 block">930</span>
-                <span class="text-muted text-xs">Uploads</span>
+                <span class="text-white font-thin h1 block">{{child.selected.stock.clothes}}</span>
+                <span class="text-muted text-xs">CLOTHES</span>
                 <span class="bottom text-right w-full">
                   <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
                 </span>
@@ -70,16 +55,16 @@
             </div>
             <div class="col-xs-6">
               <a href class="block panel padder-v bg-info item">
-                <span class="text-white font-thin h1 block">432</span>
-                <span class="text-muted text-xs">Comments</span>
+                <span class="text-white font-thin h1 block">{{child.selected.points}}</span>
+                <span class="text-muted text-xs">POINTS</span>
                 <span class="top text-left">
                   <i class="fa fa-caret-up text-warning m-l-sm"></i>
                 </span>
               </a>
             </div>
             <div class="col-xs-6">
-              <div class="panel padder-v item">
-                <div class="font-thin h1">129</div>
+              <div class="panel padder-v item bg-success block">
+                <div class="text-white font-thin h1 block">129</div>
                 <span class="text-muted text-xs">Feeds</span>
                 <div class="bottom text-left">
                   <i class="fa fa-caret-up text-warning m-l-sm"></i>

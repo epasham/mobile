@@ -9,26 +9,17 @@ angular.module('app')
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       isIE && angular.element($window.document.body).addClass('ie');
       isSmartDevice( $window ) && angular.element($window.document.body).addClass('smart');
+    $scope.changeChild = function(child) {
+
+        $scope.child = child;
+
+    };
+    // $scope.$watch('$select', function ($select.search) {
+    //   $scope.changeChild(currentChild);
+    // });
       
-      //remove when api works
-      // $scope.user = {
-      //     id: 100,
-      //     first_name: "John",
-      //     last_name: "Doe",
-      //     email_address: "example@example.com",
-      //     home_phone: "555-555-5555",
-      //     cell_phone: "555-555-5556",
-      //     home_address: "2004 Nowhere Lane",
-      //     home_state: "MD",
-      //     home_zip: 21113,
-      //     work_phone: "555-555-5556",
-      //     work_address: "2004 Nowhere Lane",
-      //     work_state: "MD",
-      //     work_zip: 21113,
-      //     job_title: "Some Title",
-      //     type: "Parent"
-      // };
-      $scope.children = [{
+      $scope.children = [
+        {
           id: 101,    // child_id ?
           first_name: "Mary",
           last_name: "Doe",
@@ -39,22 +30,22 @@ angular.module('app')
           daycare_name: "Little Bo Peep",
           daycare_id: 200,
           association_token: "qwerty123456",
-          stock: [
+          points: 14,
+          stock: 
             {
               diapers: 20,
               clothes: 1,
               // Meds might be optional, just want to plan for it
-              medications: [
+              medications: 
                 {
                   name: "Medication Name",
                   type: "pill",
                   amount: 10,
                 }
-              ]
+              
             }
-          ]
-          },
-          {
+        },
+        {
           id: 102,
           first_name: "John",
           last_name: "Doe",
@@ -65,22 +56,27 @@ angular.module('app')
           daycare_name: "Little Bo Peep",
           daycare_id: 200,
           association_token: "qwerty123456",
-          stock: [
+          points: 27,
+          stock: 
             {
-              diapers: 20,
-              clothes: 1,
+              diapers: 31,
+              clothes: 2,
               // Meds might be optional, just want to plan for it
-              medications: [
+              medications: 
                 {
                   name: "Medication Name",
                   type: "pill",
                   amount: 10
                 }
-              ]
+              
             }
-          ]
-      }];
+          
+        }
+      ];
       // end remove
+
+      $scope.child = {};
+      $scope.child.selected = $scope.children[0];
       // config
       $scope.app = {
         name: 'My Day at Care',
