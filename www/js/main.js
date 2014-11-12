@@ -51,7 +51,7 @@ angular.module('app')
           last_name: "Doe",
           class_id: 1,
           checked_in: true,
-          checked_in_time: 1415124826,
+          checked_in_time: 1415779620,
           picture_file: 1415124826,
           daycare_name: "Little Bo Peep",
           daycare_id: 200,
