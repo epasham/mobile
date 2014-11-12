@@ -391,32 +391,32 @@ angular.module('app')
                   }
               })
 
-              // mail
-              .state('app.mail', {
+              // messages
+              .state('app.messages', {
                   abstract: true,
-                  url: '/mail',
-                  templateUrl: 'tpl/mail.html',
+                  url: '/messages',
+                  templateUrl: 'tpl/messages.html',
                   // use resolve to load other dependences
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad ){
-                          return uiLoad.load( ['js/app/mail/mail.js',
-                                               'js/app/mail/mail-service.js',
+                          return uiLoad.load( ['js/app/messages/messages.js',
+                                               'js/app/messages/messages-service.js',
                                                'vendor/libs/moment.min.js'] );
                       }]
                   }
               })
-              .state('app.mail.list', {
+              .state('app.messages.list', {
                   url: '/inbox/{fold}',
-                  templateUrl: 'tpl/mail.list.html'
+                  templateUrl: 'tpl/messages.list.html'
               })
-              .state('app.mail.detail', {
-                  url: '/{mailId:[0-9]{1,4}}',
-                  templateUrl: 'tpl/mail.detail.html'
+              .state('app.messages.detail', {
+                  url: '/{messagesId:[0-9]{1,4}}',
+                  templateUrl: 'tpl/messages.detail.html'
               })
-              .state('app.mail.compose', {
+              .state('app.messages.compose', {
                   url: '/compose',
-                  templateUrl: 'tpl/mail.new.html'
+                  templateUrl: 'tpl/messages.new.html'
               })
 
               .state('layout', {
