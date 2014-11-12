@@ -33,57 +33,89 @@
     <div class="wrapper-md" ng-controller="FlotChartDemoCtrl">
       <!-- stats -->
       <div class="row">
-        <div class="col-md-5">
-          <div class="row row-sm text-center">
-            <div class="col-xs-6">
-              <div class="panel padder-v item bg-danger block">
-                <div class="text-white font-thin h1 block">{{child.selected.stock.diapers}}</div>
-                <span class="text-muted text-xs">DIAPERS</span>
-                <div class="top text-right w-full">
-                  <i class="fa fa-caret-down text-warning m-r-sm"></i>
-                </div>
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading bg-info no-border no-padder">
+          <div class="col pull-left wrapper">
+            <div class="thumb-sm avatar">
+              <img src="img/a5.jpg" alt="..." class="b b-3x b-white m-n">
+            </div>
+          </div>
+          <div class="col pull-left wrapper">
+              <div class="h4 font-thin m-t-sm">{{child.selected.first_name}} {{child.selected.last_name}}</div>
+          </div>
+          <div class="col wrapper pull-right">
+            <div class="h3 text-success">12 <span class="h5 font-thin">Pts</span></div>
+          </div>
+        </div>
+
+        <div class="hbox bg-primary bg text-center">
+          <div class="col-xs-3 wrapper">
+            <span class="font-thin">Hygiene</span>
+            <div class="h1 text-white">2</div>
+          </div>
+          <div class="col wrapper">
+            <span class="font-thin"></span>
+            <div class="h1 text-white"></div>
+          </div>
+          <div class="col wrapper">
+            <span class="font-thin"></span>
+            <div class="h1 text-white"></div>
+          </div>
+        </div>
+        <div class="hbox bg-info bg text-center">
+          <div class="col-xs-3 wrapper">
+            <span class="font-thin">Behavior</span>
+            <div class="h1 text-white">12</div>
+          </div>
+          <div class="col wrapper">
+            <span class="font-thin"></span>
+            <div class="h1 text-white"></div>
+          </div>
+          <div class="col wrapper">
+            <span class="font-thin"></span>
+            <div class="h1 text-white"></div>
+          </div>
+        </div>
+        <div class="hbox bg-success bg text-center">
+          <div class="col-xs-3 wrapper">
+            <span class="font-thin">Moods</span>
+            <div class="h1 text-white text-center">2</div>
+          </div>
+          <div class="col wrapper">
+            <span class="font-thin"></span>
+            <div class="h1 text-white"></div>
+          </div>
+          <div class="col wrapper">
+            <span class="font-thin"></span>
+            <div class="h1 text-white"></div>
+          </div>
+        </div>
+
+        <footer class="panel-footer bg-default text-center no-padder">
+          <div class="row no-gutter">
+            <div class="col-xs-4">
+              <div class="wrapper">
+                <span class="m-b-xs h3 block text-primary">{{child.selected.stock.diapers}}</span>
+                <small class="text-muted">Diapers</small>
               </div>
             </div>
-            <div class="col-xs-6">
-              <a href class="block panel padder-v bg-primary item">
-                <span class="text-white font-thin h1 block">{{child.selected.stock.clothes}}</span>
-                <span class="text-muted text-xs">CLOTHES</span>
-                <span class="bottom text-right w-full">
-                  <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
-                </span>
-              </a>
-            </div>
-            <div class="col-xs-6">
-              <a href class="block panel padder-v bg-info item">
-                <span class="text-white font-thin h1 block">{{child.selected.points}}</span>
-                <span class="text-muted text-xs">POINTS</span>
-                <span class="top text-left">
-                  <i class="fa fa-caret-up text-warning m-l-sm"></i>
-                </span>
-              </a>
-            </div>
-            <div class="col-xs-6">
-              <div class="panel padder-v item bg-success block">
-                <div class="text-white font-thin h1 block">{{child.selected.checked_in_time | date:'h:mm a'}}</div>
-                <span class="text-muted text-xs">CHECKED IN</span>
-                <div class="bottom text-left">
-                  <i class="fa fa-caret-up text-warning m-l-sm"></i>
-                </div>
+            <div class="col-xs-4 dk">
+              <div class="wrapper">
+                <span class="m-b-xs h3 block text-primary">{{child.selected.stock.clothes}}</span>
+                <small class="text-muted">Clothes</small>
               </div>
             </div>
-            <div class="col-xs-12 m-b-md">
-              <div class="r bg-light dker item hbox no-border">
-                <div class="col w-xs v-middle hidden-md">
-                  <div ng-init="data1=[60,40]" ui-jq="sparkline" ui-options="{{data1}}, {type:'pie', height:40, sliceColors:['{{app.color.warning}}','#fff']}" class="sparkline inline"></div>
-                </div>
-                <div class="col dk padder-v r-r">
-                  <div class="text-primary-dk font-thin h1"><span>$12,670</span></div>
-                  <span class="text-muted text-xs">Revenue, 60% of the goal</span>
-                </div>
+            <div class="col-xs-4">
+              <div class="wrapper">
+                <span class="m-b-xs h3 block text-info">{{child.selected.points}}</span>
+                <small class="text-muted">Points</small>
               </div>
             </div>
           </div>
-        </div>
+        </footer>
+      </div>
+    </div>
         <div class="col-md-7">
           <div class="panel wrapper">
             <label class="i-switch bg-warning pull-right" ng-init="showSpline=true">

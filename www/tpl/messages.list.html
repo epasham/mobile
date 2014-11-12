@@ -13,8 +13,8 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu text-left text-sm">
-          <li><a ui-sref="app.mail.list({fold:'unread'})">Unread</a></li>
-          <li><a ui-sref="app.mail.list({fold:'starred'})">Starred</a></li>
+          <li><a ui-sref="app.messages.list({fold:'unread'})">Unread</a></li>
+          <li><a ui-sref="app.messages.list({fold:'starred'})">Starred</a></li>
         </ul>
       </div>
       <div class="btn-group">
@@ -35,7 +35,7 @@
         <i class="fa fa-paperclip ng-hide m-l-sm" ng-show="{{mail.attach}}"></i>
       </div>
       <div class="clear">
-        <div><a ui-sref="app.mail.detail({mailId:mail.id})" class="text-md">{{mail.subject}}</a><span class="label bg-light m-l-sm">{{mail.label}}</span></div>
+        <div><a ui-sref="app.messages.detail({mailId:mail.id})" class="text-md">{{mail.subject}}</a><span class="label bg-light m-l-sm">{{mail.label}}</span></div>
         <div class="text-ellipsis m-t-xs">{{mail.content | limitTo:100}}</div>
       </div>      
     </li>

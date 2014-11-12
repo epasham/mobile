@@ -365,7 +365,7 @@ angular.module('app')
               })
 
               // mail
-              .state('app.mail', {
+              .state('app.messages', {
                   abstract: true,
                   url: '/mail',
                   templateUrl: 'tpl/mail.html',
@@ -379,15 +379,15 @@ angular.module('app')
                       }]
                   }
               })
-              .state('app.mail.list', {
+              .state('app.messages.list', {
                   url: '/inbox/{fold}',
                   templateUrl: 'tpl/mail.list.html'
               })
-              .state('app.mail.detail', {
+              .state('app.messages.detail', {
                   url: '/{mailId:[0-9]{1,4}}',
                   templateUrl: 'tpl/mail.detail.html'
               })
-              .state('app.mail.compose', {
+              .state('app.messages.compose', {
                   url: '/compose',
                   templateUrl: 'tpl/mail.new.html'
               })
