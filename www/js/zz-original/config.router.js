@@ -486,6 +486,48 @@ angular.module('app')
                       }]
                   }
               })
+              .state('parent.child.new', {
+                  url: '/new',
+                  templateUrl: 'tpl/parent_child_new.html',
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['js/controllers/newchild.js'] );
+                      }]
+                  }
+              })
+              .state('layout.parent', {
+                  url: '/parent',
+                  views: {
+                      '': {
+                          templateUrl: 'tpl/layout_app.html'
+                      },
+                      'footer': {
+                          templateUrl: 'tpl/layout_footer_fullwidth.html'
+                      }
+                  },
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['js/controllers/tab.js'] );
+                      }]
+                  }
+              })
+              .state('parent.child', {
+                  abstract: true,
+                  url: '/child',
+                  templateUrl: 'tpl/app.dashboard.html',
+                  // use resolve to load other dependences
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['js/app/mail/mail.js',
+                                               'js/app/mail/mail-service.js',
+                                               'vendor/libs/moment.min.js'] );
+                      }]
+                  }
+              })
+
       }
     ]
   );

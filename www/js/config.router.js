@@ -513,6 +513,20 @@ angular.module('app')
                       }]
                   }
               })
+              // parent
+
+              .state('app.newchild', {
+                  url: '/newchild',
+                  templateUrl: 'tpl/parent_child_new.html',
+                  resolve: {
+                    deps: ['uiLoad',
+                      function( uiLoad ){
+                        return uiLoad.load( ['js/app/parent/newchild.js'] );
+                    }]
+                  }
+
+              })
+
       }
     ]
   );
