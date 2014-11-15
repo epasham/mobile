@@ -102,32 +102,32 @@ angular.module('app')
                   amount_finished: 6
               }]
             }
-          },
-        {
-          id: 102,
-          first_name: "John",
+          },        
+          {
+          id: 102,    // child_id ?
+          first_name: "Mary",
           last_name: "Doe",
           class_id: 1,
           checked_in: true,
-          checked_in_time: 1415779620,
+          checked_in_time: 1415124826,
           picture_file: 1415124826,
           daycare_name: "Little Bo Peep",
           daycare_id: 200,
           association_token: "qwerty123456",
-          points: 27,
+          points: -14,
           stock: 
             {
-              diapers: 31,
-              clothes: 2,
+              diapers: 20,
+              clothes: 1,
               // Meds might be optional, just want to plan for it
               medications: 
                 {
                   name: "Medication Name",
                   type: "pill",
-                  amount: 10
+                  amount: 10,
                 }
               
-            },
+            },  
             events: {
               behavior: [{
                   id: 1,
@@ -181,8 +181,166 @@ angular.module('app')
                   amount_finished: 6
               }]
             }
-        }
-      ];
+          },
+        {
+          id: 103,    // child_id ?
+          first_name: "Mary",
+          last_name: "Doe",
+          class_id: 1,
+          checked_in: true,
+          checked_in_time: 1415124826,
+          picture_file: 1415124826,
+          daycare_name: "Little Bo Peep",
+          daycare_id: 200,
+          association_token: "qwerty123456",
+          points: -14,
+          stock: 
+            {
+              diapers: 20,
+              clothes: 1,
+              // Meds might be optional, just want to plan for it
+              medications: 
+                {
+                  name: "Medication Name",
+                  type: "pill",
+                  amount: 10,
+                }
+              
+            },  
+            events: {
+              behavior: [{
+                  id: 1,
+                  type: "positive",   // Boolean?
+                  name: "Helping",    // Event Type ID?
+                  time: 1415124826,
+                  points: 10
+                },
+                {
+                  id: 2,
+                  type: "negative",
+                  name: "Hitting",
+                  time: 1415124826,
+                  points: -20
+              }],
+              hygiene: {
+                  id: 1,
+                  name: "Diaper",
+                  type: 1,
+                  leak_level: 3,
+                  time: 1415124826
+              },
+              moods: {
+              },
+              food: [{
+                  id: 1,
+                  type: "food",
+                  name: "Pretzels",
+                  time: 1415124826,
+                  percent_finished: 50
+                },
+                {
+                  id: 2,
+                  type: "drink",
+                  name: "Juice",
+                  time: 1415124826,
+                  percent_finished: 100
+                },
+                {
+                  id: 3,
+                  type: "formula",
+                  name: "Bottle",
+                  time: 1415124826,
+                  amount_finished: 2
+                },
+                {
+                  id: 4,
+                  type: "cereal",
+                  name: "Baby Cereal",
+                  time: 1415124826,
+                  amount_finished: 6
+              }]
+            }
+          },
+          {
+            id: 104,
+            first_name: "John",
+            last_name: "Doe",
+            class_id: 1,
+            checked_in: true,
+            checked_in_time: 1415779620,
+            picture_file: 1415124826,
+            daycare_name: "Little Bo Peep",
+            daycare_id: 200,
+            association_token: "qwerty123456",
+            points: 27,
+            stock: 
+              {
+                diapers: 31,
+                clothes: 2,
+                // Meds might be optional, just want to plan for it
+                medications: 
+                  {
+                    name: "Medication Name",
+                    type: "pill",
+                    amount: 10
+                  }
+                
+              },
+              events: {
+                behavior: [{
+                    id: 1,
+                    type: "positive",   // Boolean?
+                    name: "Helping",    // Event Type ID?
+                    time: 1415124826,
+                    points: 10
+                  },
+                  {
+                    id: 2,
+                    type: "negative",
+                    name: "Hitting",
+                    time: 1415124826,
+                    points: -20
+                }],
+                hygiene: {
+                    id: 1,
+                    name: "Diaper",
+                    type: 1,
+                    leak_level: 3,
+                    time: 1415124826
+                },
+                moods: {
+                },
+                food: [{
+                    id: 1,
+                    type: "food",
+                    name: "Pretzels",
+                    time: 1415124826,
+                    percent_finished: 50
+                  },
+                  {
+                    id: 2,
+                    type: "drink",
+                    name: "Juice",
+                    time: 1415124826,
+                    percent_finished: 100
+                  },
+                  {
+                    id: 3,
+                    type: "formula",
+                    name: "Bottle",
+                    time: 1415124826,
+                    amount_finished: 2
+                  },
+                  {
+                    id: 4,
+                    type: "cereal",
+                    name: "Baby Cereal",
+                    time: 1415124826,
+                    amount_finished: 6
+                }]
+              }
+          }
+        ];
       // end remove
 
       $scope.child = {};

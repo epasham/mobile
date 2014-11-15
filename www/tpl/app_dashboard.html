@@ -144,7 +144,38 @@
  -->      
       </div>
       <!-- / stats -->
-
+<div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="child in children">
+      <div class="panel b-a">
+        <div class="panel-heading no-border bg-primary">          
+          <span class="text-lt">{{child.first_name}} {{child.last_name}}</span>
+        </div>
+        <div class="item m-l-n-xxs m-r-n-xxs">
+          <div ng-init="x = 3" class="top text-right padder m-t-xs w-full">
+            <rating ng-model="x" max="5" state-on="'fa fa-star text-white'" state-off="'fa fa-star-o text-white'"></rating>
+          </div>
+          <div class="wrapper text-white">            
+            <span class="h3 text-success">{{child.points}}</div>
+            <span class="h6 text-dk">points</span>
+          </div>
+        </div>
+        <div class="hbox text-center b-b b-light text-sm">          
+          <a href class="col padder-v text-white b-r b-light bg-success">
+            <i class="icon-plus block m-b-xs fa-2x"></i>
+            <span>Mood</span>
+          </a>
+          <a href class="col padder-v text-white b-r b-light bg-info">
+            <i class="icon-plus block m-b-xs fa-2x"></i>
+            <span>Behavior</span>
+          </a>
+          <a href class="col padder-v text-white bg-primary">
+            <i class="icon-plus block m-b-xs fa-2x"></i>
+            <span>Hygiene</span>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
       <!-- service -->
 <!--       <div class="panel hbox hbox-auto-xs no-border">
         <div class="col wrapper">

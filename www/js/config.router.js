@@ -13,15 +13,15 @@ angular.module('app')
     ]
   )
   .config(
-    [          '$stateProvider', '$urlRouterProvider', 'RestangularProvider',
-      function ($stateProvider,   $urlRouterProvider, RestangularProvider) {
+    [          '$stateProvider', '$urlRouterProvider', 'RestangularProvider', '$httpProvider',
+      function ($stateProvider,   $urlRouterProvider,   RestangularProvider,   $httpProvider) {
+          $httpProvider.interceptors.push('AuthInterceptor');
           RestangularProvider.setBaseUrl('https://54.69.129.186:5000/');
           RestangularProvider.setRestangularFields({
             id: '_id.$oid'
           });
           
           RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
-            
             if (operation === 'put') {
               elem._id = undefined;
               return elem;
@@ -529,4 +529,21 @@ angular.module('app')
 
       }
     ]
-  );
+  ).factory('AuthInterceptor', function ($window, $q) {
+    return {
+        request: function(config) {
+            config.headers = config.headers || {};
+            if ($window.localStorage.getItem('token')) {
+                config.headers.Authorization = 'Bearer ' + $window.localStorage.getItem('token');
+            }
+            return config || $q.when(config);
+        },
+        response: function(response) {
+            if (response.status === 401) {
+              $state.go('access.signin');
+            }
+            return response || $q.when(response);
+        }
+    };
+})
+;
