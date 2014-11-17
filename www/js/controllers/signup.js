@@ -18,7 +18,7 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', 'Restangula
         work_zip: '',
         job_title: '',
         type: '',
-        password: 'temporary'
+        password: ''
     };
     $scope.authError = null;
     // $scope.signup = function() {

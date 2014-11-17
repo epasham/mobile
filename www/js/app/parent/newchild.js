@@ -1,7 +1,7 @@
 'use strict';
 
 // signup controller
-app.controller('NewChildFormController', ['$scope', '$http', '$state', 'Restangular', '$rootScope', function($scope, $http, $state, Restangular, $rootScope) {
+app.controller('NewChildFormController', ['$scope', '$http', '$state', 'Restangular', '$rootScope', 'storage', function($scope, $http, $state, Restangular, $rootScope, storage) {
     $scope.authError = null;
     // $scope.signup = function() {
     //   $scope.authError = null;
@@ -17,13 +17,14 @@ app.controller('NewChildFormController', ['$scope', '$http', '$state', 'Restangu
     //   });
     // };
     $scope.newChild = {};
-    $scope.newChild.token = $rootScope.token;
+    $scope.user_id = storage.get('user_id');
+    $scope.newChild.token = storage.get('token');
 
     $scope.addChild = function() {
       $scope.success = false;
       $scope.authError = null;
       // Try to create
-      var api = Restangular.all('account/'+$rootScope.user_id+'/child/create/');
+      var api = Restangular.all('account/'+$scope.user_id+'/child/create/');
 
       // POST /accounts
       api.post($scope.newChild).then(function(response) {

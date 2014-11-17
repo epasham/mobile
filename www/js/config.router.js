@@ -15,7 +15,7 @@ angular.module('app')
   .config(
     [          '$stateProvider', '$urlRouterProvider', 'RestangularProvider', '$httpProvider',
       function ($stateProvider,   $urlRouterProvider,   RestangularProvider,   $httpProvider) {
-          $httpProvider.interceptors.push('AuthInterceptor');
+          // $httpProvider.interceptors.push('AuthInterceptor');
           RestangularProvider.setBaseUrl('https://54.69.129.186:5000/');
           RestangularProvider.setRestangularFields({
             id: '_id.$oid'

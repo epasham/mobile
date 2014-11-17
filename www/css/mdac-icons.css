@@ -9,7 +9,7 @@
 	font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="mdac-"], [class*=" mdac-"] {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -23,111 +23,111 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-badwords:before {
+.mdac-badwords:before {
 	content: "\e61f";
 }
-.icon-notlistening:before {
+.mdac-notlistening:before {
 	content: "\e620";
 }
-.icon-bad:before {
+.mdac-bad:before {
 	content: "\e621";
 }
-.icon-kick:before {
+.mdac-kick:before {
 	content: "\e622";
 }
-.icon-hit:before {
+.mdac-hit:before {
 	content: "\e623";
 }
-.icon-train:before {
+.mdac-train:before {
 	content: "\e600";
 }
-.icon-pacifier:before {
+.mdac-pacifier:before {
 	content: "\e601";
 }
-.icon-baby:before {
+.mdac-baby:before {
 	content: "\e602";
 }
-.icon-teddy:before {
+.mdac-teddy:before {
 	content: "\e603";
 }
-.icon-bottle:before {
+.mdac-bottle:before {
 	content: "\e604";
 }
-.icon-walkie:before {
+.mdac-walkie:before {
 	content: "\e605";
 }
-.icon-bike:before {
+.mdac-bike:before {
 	content: "\e606";
 }
-.icon-stackingtoy:before {
+.mdac-stackingtoy:before {
 	content: "\e607";
 }
-.icon-diaper:before {
+.mdac-diaper:before {
 	content: "\e608";
 }
-.icon-rattle:before {
+.mdac-rattle:before {
 	content: "\e609";
 }
-.icon-buggy:before {
+.mdac-buggy:before {
 	content: "\e60a";
 }
-.icon-safetypin:before {
+.mdac-safetypin:before {
 	content: "\e60b";
 }
-.icon-stroller:before {
+.mdac-stroller:before {
 	content: "\e60c";
 }
-.icon-onesie:before {
+.mdac-onesie:before {
 	content: "\e60d";
 }
-.icon-crib:before {
+.mdac-crib:before {
 	content: "\e60e";
 }
-.icon-horse:before {
+.mdac-horse:before {
 	content: "\e60f";
 }
-.icon-unwell:before {
+.mdac-unwell:before {
 	content: "\e610";
 }
-.icon-frustrated:before {
+.mdac-frustrated:before {
 	content: "\e611";
 }
-.icon-sleepy:before {
+.mdac-sleepy:before {
 	content: "\e612";
 }
-.icon-sad:before {
+.mdac-sad:before {
 	content: "\e613";
 }
-.icon-crying:before {
+.mdac-crying:before {
 	content: "\e614";
 }
-.icon-quiet:before {
+.mdac-quiet:before {
 	content: "\e615";
 }
-.icon-loud:before {
+.mdac-loud:before {
 	content: "\e616";
 }
-.icon-happy:before {
+.mdac-happy:before {
 	content: "\e617";
 }
-.icon-joyful:before {
+.mdac-joyful:before {
 	content: "\e618";
 }
-.icon-attentive:before {
+.mdac-attentive:before {
 	content: "\e619";
 }
-.icon-silly:before {
+.mdac-silly:before {
 	content: "\e61a";
 }
-.icon-angry:before {
+.mdac-angry:before {
 	content: "\e61b";
 }
-.icon-scared:before {
+.mdac-scared:before {
 	content: "\e61c";
 }
-.icon-timid:before {
+.mdac-timid:before {
 	content: "\e61d";
 }
-.icon-stubborn:before {
+.mdac-stubborn:before {
 	content: "\e61e";
 }

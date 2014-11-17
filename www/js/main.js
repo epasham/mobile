@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$rootScope', '$scope', '$translate', '$localStorage', '$window', '$http', '$timeout', 
-    function(              $rootScope,   $scope,   $translate,   $localStorage,   $window,   $http,   $timeout ) {
+  .controller('AppCtrl', ['$rootScope', '$scope', '$translate', '$localStorage', '$window', '$http', '$timeout', 'storage', 
+    function(              $rootScope,   $scope,   $translate,   $localStorage,   $window,   $http,   $timeout, storage ) {
       // add 'ie' classes to html
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       isIE && angular.element($window.document.body).addClass('ie');
@@ -14,11 +14,7 @@ angular.module('app')
         $scope.child = child;
 
     };
-    $scope.user = function() { 
-      if ($rootScope.currentUser) {
-      return $rootScope.currentUser;
-    }
-    };
+    $scope.user = storage.get('user');
     // $scope.$watch('$select', function ($select.search) {
     //   $scope.changeChild(currentChild);
     // });

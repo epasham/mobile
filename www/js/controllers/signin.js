@@ -2,7 +2,7 @@
 
 /* Controllers */
   // signin controller
-app.controller('SigninFormController', ['$rootScope', '$scope', '$http', '$state', 'Restangular', '$window', function($rootScope, $scope, $http, $state, Restangular, $window) {
+app.controller('SigninFormController', ['$rootScope', '$scope', '$http', '$state', 'Restangular', 'storage', function($rootScope, $scope, $http, $state, Restangular, storage) {
     $rootScope.currentUser = {};
     $scope.user = {};
     $scope.authError = null;
@@ -20,11 +20,11 @@ app.controller('SigninFormController', ['$rootScope', '$scope', '$http', '$state
           $scope.authError = 'Fail';
         } else {
           $scope.user = {token: response.token, id: response.user_id};
-          $window.localStorage.setItem('token', response.token);
-          $window.localStorage.setItem('user_id', response.user_id);
+          storage.set('token', response.token);
+          storage.set('user_id', response.user_id);
 
           Restangular.all('account').get($scope.user.id, {token: $scope.user.token}).then(function(response) {
-            $window.localStorage.setItem('user', response);
+            storage.set('user', response);
             $state.go('app.dashboard');
           });
         }
