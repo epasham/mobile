@@ -3,7 +3,7 @@
 /* Controllers */
   // signin controller
 app.controller('SigninFormController', ['$rootScope', '$scope', '$http', '$state', 'Restangular', 'storage', function($rootScope, $scope, $http, $state, Restangular, storage) {
-    $rootScope.currentUser = {};
+    storage.clearAll();
     $scope.user = {};
     $scope.authError = null;
     $scope.login = function() {

@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$rootScope', '$scope', '$translate', '$localStorage', '$window', '$http', '$timeout', 'storage', 
-    function(              $rootScope,   $scope,   $translate,   $localStorage,   $window,   $http,   $timeout, storage ) {
+  .controller('AppCtrl', ['$rootScope', '$scope', '$translate', '$localStorage', '$window', '$http', '$timeout', 'storage', '$state', 
+    function(              $rootScope,   $scope,   $translate,   $localStorage,   $window,   $http,   $timeout, storage, $state ) {
       // add 'ie' classes to html
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       isIE && angular.element($window.document.body).addClass('ie');
@@ -15,9 +15,16 @@ angular.module('app')
 
     };
     $scope.user = storage.get('user');
-    // $scope.$watch('$select', function ($select.search) {
-    //   $scope.changeChild(currentChild);
-    // });
+    // if ($scope.user) {
+    //   $state.go('access.signin');
+    // }
+    $scope.$watch('user', function (user) {
+      if (!user) {
+        $state.go('access.signin');
+      } else {      
+        $scope.user = user;
+      }
+    });
       
       $scope.children = [
         {
@@ -98,10 +105,10 @@ angular.module('app')
                   amount_finished: 6
               }]
             }
-          },        
-          {
+        },        
+        {
           id: 102,    // child_id ?
-          first_name: "Mary",
+          first_name: "Alice",
           last_name: "Doe",
           class_id: 1,
           checked_in: true,
@@ -177,10 +184,10 @@ angular.module('app')
                   amount_finished: 6
               }]
             }
-          },
+        },
         {
           id: 103,    // child_id ?
-          first_name: "Mary",
+          first_name: "John",
           last_name: "Doe",
           class_id: 1,
           checked_in: true,
@@ -189,7 +196,7 @@ angular.module('app')
           daycare_name: "Little Bo Peep",
           daycare_id: 200,
           association_token: "qwerty123456",
-          points: -14,
+          points: 35,
           stock: 
             {
               diapers: 20,

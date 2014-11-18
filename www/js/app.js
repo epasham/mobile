@@ -16,5 +16,6 @@ angular.module('app', [
     'oc.lazyLoad',
     'pascalprecht.translate',
     'restangular',
-    'angularLocalStorage'
+    'angularLocalStorage',
+    'angularFileUpload'
 ]);
