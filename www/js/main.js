@@ -64,7 +64,7 @@ angular.module('app')
                 {
                   id: 2,
                   type: "negative",
-                  name: "Hitting",
+                  name: "kicking",
                   time: 1415124826,
                   points: -20
               }],
@@ -154,14 +154,21 @@ angular.module('app')
               behavior: [{
                   id: 1,
                   type: "positive",   // Boolean?
-                  name: "Helping",    // Event Type ID?
+                  name: "yelling",    // Event Type ID?
+                  time: 1415124826,
+                  points: 10
+                },
+                {
+                  id: 1,
+                  type: "negative",   // Boolean?
+                  name: "bad",    // Event Type ID?
                   time: 1415124826,
                   points: 10
                 },
                 {
                   id: 2,
                   type: "negative",
-                  name: "Hitting",
+                  name: "not-listening",
                   time: 1415124826,
                   points: -20
               }],
@@ -171,8 +178,6 @@ angular.module('app')
                   type: 1,
                   leak_level: 3,
                   time: 1415124826
-              }],
-              moods: [{
               }],
               food: [{
                   id: 1,
@@ -253,7 +258,17 @@ angular.module('app')
                   time: 1415124826
               }],
               moods: [{
-              }],
+                  id: 1,
+                  type: "negative",
+                  name: "stubborn",
+                  time: 1415124826
+                },
+                {
+                  id: 2,
+                  type: "negative",
+                  name: "crying",
+                  time: 1415124826
+                }],
               food: [{
                   id: 1,
                   type: "food",
@@ -332,7 +347,17 @@ angular.module('app')
                     leak_level: 3,
                     time: 1415124826
                 }],
-                moods: [{
+              moods: [{
+                  id: 1,
+                  type: "positive",
+                  name: "joyful",
+                  time: 1415124826
+                },
+                {
+                  id: 2,
+                  type: "positive",
+                  name: "silly",
+                  time: 1415124826
                 }],
                 food: [{
                     id: 1,

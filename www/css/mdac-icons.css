@@ -28,13 +28,16 @@
 .mdac-badwords:before {
 	content: "\e61f";
 }
-.mdac-notlistening:before {
+.mdac-not-listening:before {
 	content: "\e620";
 }
 .mdac-bad:before {
 	content: "\e621";
 }
 .mdac-kick:before {
+	content: "\e622";
+}
+.mdac-kicking:before {
 	content: "\e622";
 }
 .mdac-hit:before {
@@ -110,6 +113,9 @@
 	content: "\e615";
 }
 .mdac-loud:before {
+	content: "\e616";
+}
+.mdac-yelling:before {
 	content: "\e616";
 }
 .mdac-happy:before {
