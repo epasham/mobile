@@ -17,5 +17,6 @@ angular.module('app', [
     'pascalprecht.translate',
     'restangular',
     'angularLocalStorage',
-    'angularFileUpload'
+    'angularFileUpload',
+    'ngOrderObjectBy'
 ]);

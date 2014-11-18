@@ -4189,3 +4189,17 @@ a.text-#000000:hover {
 .app-aside-folded .navbar-brand img {
   max-height: 43px;
 }
+.child-icon {
+  padding: 0 6%;
+  font-size: 16px;
+}
+.child-icon:first {
+  padding: 0 6% 0 0;
+}
+.child-icon:last {
+  padding: 0  0 0 6%;
+}
+.child-icon.mdac-rx {
+  font-weight: bold;
+  font-size: 100%;
+}

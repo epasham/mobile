@@ -22,7 +22,9 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+.mdac-rx:before {
+	content: "\e624";
+}
 .mdac-badwords:before {
 	content: "\e61f";
 }
@@ -36,6 +38,9 @@
 	content: "\e622";
 }
 .mdac-hit:before {
+	content: "\e623";
+}
+.mdac-hitting:before {
 	content: "\e623";
 }
 .mdac-train:before {
@@ -108,6 +113,9 @@
 	content: "\e616";
 }
 .mdac-happy:before {
+	content: "\e617";
+}
+.mdac-helping:before {
 	content: "\e617";
 }
 .mdac-joyful:before {

@@ -25,6 +25,7 @@ app.controller('SigninFormController', ['$rootScope', '$scope', '$http', '$state
 
           Restangular.all('account').get($scope.user.id, {token: $scope.user.token}).then(function(response) {
             storage.set('user', response);
+            $scope.user = response;
             $state.go('app.dashboard');
           });
         }

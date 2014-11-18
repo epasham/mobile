@@ -14,17 +14,18 @@ angular.module('app')
         $scope.child = child;
 
     };
-    $scope.user = storage.get('user');
     // if ($scope.user) {
     //   $state.go('access.signin');
     // }
-    $scope.$watch('user', function (user) {
-      if (!user) {
-        $state.go('access.signin');
-      } else {      
-        $scope.user = user;
-      }
-    });
+    $scope.$on('$stateChangeSuccess', function(){ 
+        $scope.user = storage.get('user');
+        $scope.state = $state.current.name;
+        if (!$scope.user && $scope.state == 'access.signup') {
+          console.log('signing up')
+        } else if (!$scope.user) {
+          $state.go('access.signin')
+        }
+      })    
       
       $scope.children = [
         {
@@ -32,9 +33,9 @@ angular.module('app')
           first_name: "Mary",
           last_name: "Doe",
           class_id: 1,
-          checked_in: true,
+          checked_in: false,
           checked_in_time: 1415124826,
-          picture_file: 1415124826,
+          picture_file: 'a2.jpg',
           daycare_name: "Little Bo Peep",
           daycare_id: 200,
           association_token: "qwerty123456",
@@ -67,15 +68,40 @@ angular.module('app')
                   time: 1415124826,
                   points: -20
               }],
-              hygiene: {
+              hygiene: [{
                   id: 1,
-                  name: "Diaper",
+                  name: "diaper",
                   type: 1,
                   leak_level: 3,
                   time: 1415124826
               },
-              moods: {
+              {
+                  id: 1,
+                  name: "bottle",
+                  type: 1,
+                  leak_level: 3,
+                  time: 1415124826
               },
+              {
+                  id: 1,
+                  name: "diaper",
+                  type: 1,
+                  leak_level: 3,
+                  time: 1415124826
+              }],
+              moods: [{
+                  id: 1,
+                  type: "positive",
+                  name: "Happy",
+                  time: 1415124826
+                },
+                {
+                  id: 2,
+                  type: "negative",
+                  name: "Sad",
+                  time: 1415124826
+                
+              }],
               food: [{
                   id: 1,
                   type: "food",
@@ -113,7 +139,7 @@ angular.module('app')
           class_id: 1,
           checked_in: true,
           checked_in_time: 1415124826,
-          picture_file: 1415124826,
+          picture_file: 'a1.jpg',
           daycare_name: "Little Bo Peep",
           daycare_id: 200,
           association_token: "qwerty123456",
@@ -121,15 +147,8 @@ angular.module('app')
           stock: 
             {
               diapers: 20,
-              clothes: 1,
+              clothes: 1
               // Meds might be optional, just want to plan for it
-              medications: 
-                {
-                  name: "Medication Name",
-                  type: "pill",
-                  amount: 10,
-                }
-              
             },  
             events: {
               behavior: [{
@@ -146,15 +165,15 @@ angular.module('app')
                   time: 1415124826,
                   points: -20
               }],
-              hygiene: {
+              hygiene: [{
                   id: 1,
-                  name: "Diaper",
+                  name: "diaper",
                   type: 1,
                   leak_level: 3,
                   time: 1415124826
-              },
-              moods: {
-              },
+              }],
+              moods: [{
+              }],
               food: [{
                   id: 1,
                   type: "food",
@@ -187,16 +206,17 @@ angular.module('app')
         },
         {
           id: 103,    // child_id ?
-          first_name: "John",
+          first_name: "Jacob",
           last_name: "Doe",
           class_id: 1,
           checked_in: true,
           checked_in_time: 1415124826,
-          picture_file: 1415124826,
+          picture_file: 'a0.jpg',
           daycare_name: "Little Bo Peep",
           daycare_id: 200,
           association_token: "qwerty123456",
           points: 35,
+          notifications: true,
           stock: 
             {
               diapers: 20,
@@ -225,15 +245,15 @@ angular.module('app')
                   time: 1415124826,
                   points: -20
               }],
-              hygiene: {
+              hygiene: [{
                   id: 1,
-                  name: "Diaper",
+                  name: "diaper",
                   type: 1,
                   leak_level: 3,
                   time: 1415124826
-              },
-              moods: {
-              },
+              }],
+              moods: [{
+              }],
               food: [{
                   id: 1,
                   type: "food",
@@ -271,11 +291,12 @@ angular.module('app')
             class_id: 1,
             checked_in: true,
             checked_in_time: 1415779620,
-            picture_file: 1415124826,
+            picture_file: 'a3.jpg',
             daycare_name: "Little Bo Peep",
             daycare_id: 200,
             association_token: "qwerty123456",
             points: 27,
+            allergies: true,
             stock: 
               {
                 diapers: 31,
@@ -304,15 +325,15 @@ angular.module('app')
                     time: 1415124826,
                     points: -20
                 }],
-                hygiene: {
+                hygiene: [{
                     id: 1,
-                    name: "Diaper",
+                    name: "diaper",
                     type: 1,
                     leak_level: 3,
                     time: 1415124826
-                },
-                moods: {
-                },
+                }],
+                moods: [{
+                }],
                 food: [{
                     id: 1,
                     type: "food",
