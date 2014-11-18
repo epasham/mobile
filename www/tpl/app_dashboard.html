@@ -10,6 +10,11 @@
         <div class="col-xs-6 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
           <small class="text-muted">Welcome to My Day at Care, {{user.first_name}}</small>
+                <button type="button" class="btn btn-default" ng-click="changeType('Teacher')">Teacher</button>
+                <button type="button" class="btn btn-default" ng-click="changeType('Parent')">Parent</button>
+                <button type="button" class="btn btn-default" ng-click="changeType('Daycare')">Daycare</button>
+
+
         </div>
         <div class="col-xs-6 text-right">
           <div class="inline m-r text-left" style="min-width: 90%;">
@@ -53,19 +58,19 @@
             <div class="hbox bg-primary bg" ng-show="child.selected.events.hygiene">
               <div class="col-xs-12 wrapper">
                 <div class="font-thin">Hygiene</div>
-                <div class="text-white m-t-sm pull-left text-center m-r-md" ng-repeat="hygiene in child.selected.events.hygiene"><div ng-class="{'negative': hygiene.type == 'negative'}" class="h1 m-b-xs event-icon mdac-{{hygiene.name|lowercase}}"></div>{{hygiene.name}}</div>
+                <div class="text-white m-t-sm pull-left text-center m-r-md" ng-repeat="hygiene in child.selected.events.hygiene | orderObjectBy:'name':true"><div ng-class="{'negative': hygiene.type == 'negative'}" class="h1 m-b-xs event-icon mdac-{{hygiene.name|lowercase}}"></div>{{hygiene.name}}</div>
               </div>
             </div>
             <div class="hbox bg-info bg" ng-show="child.selected.events.behavior">
               <div class="col-xs-12 wrapper">
                 <div class="font-thin">Behavior</div>
-                <div class="text-white m-t-sm pull-left text-center m-r-md" ng-repeat="behavior in child.selected.events.behavior"><div ng-class="{'negative': behavior.type == 'negative'}" class="h1 m-b-xs event-icon mdac-{{behavior.name|lowercase}}"></div>{{behavior.name}}</div>
+                <div class="text-white m-t-sm pull-left text-center m-r-md" ng-repeat="behavior in child.selected.events.behavior | orderObjectBy:'type':true"><div ng-class="{'negative': behavior.type == 'negative'}" class="h1 m-b-xs event-icon mdac-{{behavior.name|lowercase}}"></div>{{behavior.name}}</div>
               </div>
             </div>
             <div class="hbox bg-success bg" ng-show="child.selected.events.moods">
               <div class="col-xs-12 wrapper">
                 <div class="font-thin">Moods</div>
-                <div class="text-white m-t-sm pull-left text-center m-r-md" ng-repeat="mood in child.selected.events.moods"><div ng-class="{'negative': mood.type == 'negative'}" class="h1 m-b-xs event-icon mdac-{{mood.name|lowercase}}"></div>{{mood.name}}</div>
+                <div class="text-white m-t-sm pull-left text-center m-r-md" ng-repeat="mood in child.selected.events.moods | orderObjectBy:'type':true"><div ng-class="{'negative': mood.type == 'negative'}" class="h1 m-b-xs event-icon mdac-{{mood.name|lowercase}}"></div>{{mood.name}}</div>
               </div>
             </div>
 

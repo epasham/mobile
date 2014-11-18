@@ -33,7 +33,6 @@ app.filter('propsFilter', function() {
 })
 app.controller('SelectCtrl', function($scope, $http, $timeout) {
     $scope.disabled = undefined;
-
     $scope.enable = function() {
         $scope.disabled = false;
     };

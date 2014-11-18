@@ -4204,9 +4204,9 @@ a.text-#000000:hover {
   font-size: 100%;
 }
 .h1.event-icon {
-  font-size:60px;
+  font-size: 60px;
 }
 .h1.event-icon.negative {
-  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
   color: #bd1550;
 }

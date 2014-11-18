@@ -159,6 +159,27 @@ module.exports = function(grunt) {
         src: ['<%= yeoman.app %>/assets/**/*.css']
       }
     },
+    requirejs: {
+      options: {
+        paths: {
+          'appFiles': '<%= yeoman.app %>/'
+        },
+        removeCombined: true,
+        out: '<%= yeoman.app %>/js/compiled-files.js',
+        optimize: 'none',
+        name: 'main'
+      },
+      dev:{
+        options:{
+          optimize:'none'
+        }
+      },
+      release:{
+        options:{
+          optimize:'uglify'
+        }
+      }
+    },
     less: {
       development: {
         options: {
