@@ -8,13 +8,11 @@
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-xs-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
-          <small class="text-muted">Welcome to My Day at Care, {{user.first_name}}</small>
-                <button type="button" class="btn btn-default" ng-click="changeType('Teacher')">Teacher</button>
-                <button type="button" class="btn btn-default" ng-click="changeType('Parent')">Parent</button>
-                <button type="button" class="btn btn-default" ng-click="changeType('Daycare')">Daycare</button>
-
-
+<!--           <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
+          <small class="text-muted">Welcome to My Day at Care, {{user.first_name}}</small> -->
+          <button type="button" class="btn btn-default" ng-click="changeType('Teacher')">Teacher</button>
+          <button type="button" class="btn btn-default" ng-click="changeType('Parent')">Parent</button>
+          <button type="button" class="btn btn-default" ng-click="changeType('Daycare')">Daycare</button>
         </div>
         <div class="col-xs-6 text-right">
           <div class="inline m-r text-left" style="min-width: 90%;">
@@ -42,9 +40,7 @@
           <div class="panel panel-default">
             <div class="panel-heading bg-info no-border no-padder">
               <div class="col pull-left wrapper">
-                <div class="thumb-sm avatar">
-                  <img src="img/a5.jpg" alt="..." class="b b-3x b-white m-n">
-                </div>
+                <span class="thumb-md avatar m-t-n-xs m-b-n-sm m-r-sm"><img src="img/{{child.picture_file}}"></span>
               </div>
               <div class="col pull-left wrapper">
                   <div class="h4 font-thin m-t-sm">{{child.selected.first_name}} {{child.selected.last_name}}</div>
@@ -130,7 +126,7 @@
           <div class="panel b-a m-b-n">
             <div class="panel-heading no-border bg-white col-xs-12">
               <div class="col-xs-8 m-n no-padder">          
-                <div class="h3 text-primary m-l-n-xxs m-r-n-xxs">
+                <div class="h3 text-dark m-l-n-xxs m-r-n-xxs">
                   {{child.first_name}} {{child.last_name}}
                 </div>
                   <span ng-show="child.checked_in" class="text-success child-icon fa fa-check no-padder"></span> <span ng-show="child.checked_in">@ {{child.checked_in_time | date:' h:mm a'}}</span>
