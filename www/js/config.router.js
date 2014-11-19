@@ -73,7 +73,13 @@ angular.module('app')
               })
               .state('app.ui', {
                   url: '/ui',
-                  template: '<div ui-view class="fade-in-up"></div>'
+                  template: '<div ui-view class="fade-in-up"></div>',
+                  resolve: {
+                    deps: ['$ocLazyLoad',
+                      function( $ocLazyLoad ){
+                        return $ocLazyLoad.load(['js/controllers/ui-bootstrap.js']);
+                    }]
+                  }
               })
               .state('app.ui.buttons', {
                   url: '/buttons',
