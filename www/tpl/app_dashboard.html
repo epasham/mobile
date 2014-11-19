@@ -36,18 +36,24 @@
     <div class="wrapper-md" ng-switch="user.type">
       <!-- stats -->
       <div class="row" ng-switch-when="Parent">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="panel panel-default">
             <div class="panel-heading bg-info no-border no-padder">
-              <div class="col pull-left wrapper">
-                <span class="thumb-md avatar m-t-n-xs m-b-n-sm m-r-sm"><img src="img/{{child.picture_file}}"></span>
+              <div class="col-sm-2 pull-left wrapper">
+                <span class="thumb-md avatar m-t-n-xs m-b-n-sm m-r-n"><img src="img/{{child.selected.picture_file}}"></span>
               </div>
-              <div class="col pull-left wrapper">
-                  <div class="h4 font-thin m-t-sm">{{child.selected.first_name}} {{child.selected.last_name}}</div>
+              <div class="col-sm-4 pull-left wrapper">
+                  <div class="h4 font-dark m-t-sm">{{child.selected.first_name}} {{child.selected.last_name}}</div>
+
               </div>
-              <div class="col wrapper pull-right">
+              <div class="col-sm-6 wrapper pull-right text-right">
                 <span ng-show="child.selected.checked_in">Currently at {{child.selected.daycare_name}} - <span class="text-success child-icon fa fa-check no-padder"></span> in @ {{child.selected.checked_in_time | date:' h:mm a'}}</span>
                 <span ng-show="!child.selected.checked_in">Not at {{child.selected.daycare_name}} - <span class="text-danger child-icon fa fa-check no-padder"></span> out @ {{child.selected.checked_in_time | date:' h:mm a'}}</span>
+                <div class="no-padder m-t-sm text-right text-muted m-r-n-sm">
+                  <span ng-class="{'text-danger': child.selected.stock.medications}" class="child-icon mdac-rx"></span>
+                  <span ng-class="{'text-primary': child.selected.allergies}" class="child-icon fa fa-asterisk"></span>
+                  <span ng-class="{'text-warning': child.selected.notifications}" class="child-icon fa fa-exclamation"></span>
+                </div>
               </div>
             </div>
 

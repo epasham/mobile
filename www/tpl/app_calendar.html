@@ -3,14 +3,49 @@
     <button type="button" class="btn btn-default btn-addon pull-right m-t-n-xs" ui-toggle-class="show" target="#aside">
       <i class="fa fa-bars"></i> List
     </button>
-    <h1 class="m-n font-thin h3">Fullcalendar</h1>
+    <h1 class="m-n font-thin h3">Calendar</h1>
   </div>
   <div class="hbox hbox-auto-xs hbox-auto-sm">
     <div class="col wrapper-md">
       <div class="clearfix m-b">
-        <button type="button" tooltip="Double click on calendar day to create event" class="btn btn-sm btn-primary btn-addon" ng-click="addEvent()">
-          <i class="fa fa-plus"></i>Add
-        </button>
+          <button type="button" tooltip="Double click on calendar day to create event" class="btn btn-sm btn-primary btn-addon" ng-click="open()">
+            <i class="fa fa-plus"></i>Add
+          </button>
+          <!-- modal -->
+          <script type="text/ng-template" id="addEvent.html">
+            <div class="modal-header">
+                <h3 class="modal-title">Add an Event</h3>
+            </div>
+            <div class="modal-body">
+              <form role="form">
+                <div class="form-group">
+                  <label>Email address</label>
+                  <input type="text" class="form-control" placeholder="Enter Title" ng-model="newEvent.title">
+                </div>
+                <div class="form-group">
+                  <div ng-controller="DatepickerDemoCtrl">
+                    <div class="input-group w-md">
+                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newEvent.start" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="addEvent(newEvent)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="checkbox">
+                  <label class="i-checks">
+                    <input type="checkbox" checked disabled><i></i> Check me out
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+              </form>
+           </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="ok()">OK</button>
+                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            </div>
+          </script>
+        <!-- /modal -->
         <div class="pull-right">
           <button type="button" class="btn btn-sm btn-default" ng-click="today()">today</button>
           <div class="btn-group m-l-xs">

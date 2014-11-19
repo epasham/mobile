@@ -2,7 +2,7 @@
  * calendarDemoApp - 0.1.3
  */
 
-app.controller('FullcalendarCtrl', ['$scope', function($scope) {
+app.controller('FullcalendarCtrl', ['$scope', '$modal', function($scope, $modal) {
 
     var date = new Date();
     var d = date.getDate();
@@ -18,7 +18,7 @@ app.controller('FullcalendarCtrl', ['$scope', function($scope) {
 
     /* event source that contains custom events on the scope */
     $scope.events = [
-      {title:'snack', start: new Date(y, m, d), className: ['b-l b-2x b-info'], allDay: true, location:'New York', info:'This a all day event that will start from 9:00 am to 9:00 pm, have fun!'},
+      {title:'snack', start: new Date(y, m, d), className: ['b-l b-2x b-primary'], allDay: true, location:'New York', info:'This a all day event that will start from 9:00 am to 9:00 pm, have fun!'},
       {title:'lunch', start: new Date(y, m, d), className: ['b-l b-2x b-info'], allDay: true, location:'New York', info:'This a all day event that will start from 9:00 am to 9:00 pm, have fun!'},
       {title:'snack', start: new Date(y, m, d), className: ['b-l b-2x b-info'], allDay: true, location:'New York', info:'This a all day event that will start from 9:00 am to 9:00 pm, have fun!'},
       {title:'Dance class', start: new Date(y, m, 3), end: new Date(y, m, 4, 9, 30), allDay: false, className: ['b-l b-2x b-danger'], location:'London', info:'Two days dance training class.'},
@@ -77,7 +77,6 @@ app.controller('FullcalendarCtrl', ['$scope', function($scope) {
     /* config object */
     $scope.uiConfig = {
       calendar:{
-        allDayText: 'Menu',
         defaultView: 'agendaWeek',
         height: 450,
         editable: true,
@@ -94,12 +93,14 @@ app.controller('FullcalendarCtrl', ['$scope', function($scope) {
     };
     
     /* add custom event*/
-    $scope.addEvent = function() {
-      $scope.events.push({
-        title: 'New Event',
-        start: new Date(y, m, d),
-        className: ['b-l b-2x b-info']
+    $scope.open = function () {
+      var modalInstance = $modal.open({
+        templateUrl: 'addEvent.html'
       });
+
+    };
+    $scope.addEvent = function(newEvent) {
+      $scope.events.push(newEvent);
     };
 
     /* remove event */
