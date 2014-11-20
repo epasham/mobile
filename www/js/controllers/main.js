@@ -9,15 +9,8 @@ angular.module('app')
       var isIE = !!navigator.userAgent.match(/MSIE/i);
       isIE && angular.element($window.document.body).addClass('ie');
       isSmartDevice( $window ) && angular.element($window.document.body).addClass('smart');
-    $scope.changeChild = function(child) {
 
-        $scope.child = child;
-
-    };
-    // if ($scope.user) {
-    //   $state.go('access.signin');
-    // }
-    $scope.$on('$stateChangeSuccess', function(){ 
+      $scope.$on('$stateChangeSuccess', function(){ 
         $scope.user = storage.get('user');
         $scope.state = $state.current.name;
         if (!$scope.user && $scope.state == 'access.signup') {
@@ -25,10 +18,10 @@ angular.module('app')
         } else if (!$scope.user) {
           $state.go('access.signin')
         }
-      })    
-          $scope.changeType = function(newType) {
+      });    
+      $scope.changeType = function(newType) {
         $scope.user.type = newType;
-    };
+      };
 
       $scope.children = [
         {

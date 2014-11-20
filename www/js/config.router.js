@@ -15,12 +15,12 @@ angular.module('app')
   .config(
     [          '$stateProvider', '$urlRouterProvider', 'RestangularProvider', '$httpProvider',
       function ($stateProvider,   $urlRouterProvider,   RestangularProvider,   $httpProvider) {
-          // $httpProvider.interceptors.push('AuthInterceptor');
+
+          // restangular
           RestangularProvider.setBaseUrl('https://54.69.129.186:5000/');
           RestangularProvider.setRestangularFields({
             id: '_id.$oid'
           });
-          
           RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
             if (operation === 'put') {
               elem._id = undefined;
@@ -29,6 +29,7 @@ angular.module('app')
             return elem;
           })
           
+          // routing
           $urlRouterProvider
               .otherwise('/app/dashboard');
           $stateProvider
@@ -36,16 +37,6 @@ angular.module('app')
                   abstract: true,
                   url: '/app',
                   templateUrl: 'tpl/app.html'
-              })
-              .state('access.verify-email', {
-                  url: '/verify-email',
-                  templateUrl: 'tpl/page_verify_email.html',
-                  resolve: {
-                      deps: ['uiLoad',
-                        function( uiLoad ){
-                          return uiLoad.load( ['js/controllers/verify-email.js'] );
-                      }]
-                  }
               })
               .state('app.dashboard', {
                   url: '/dashboard',
@@ -61,25 +52,9 @@ angular.module('app')
                       }]
                   }
               })
-              .state('app.dashboard-v2', {
-                  url: '/dashboard-v2',
-                  templateUrl: 'tpl/app_dashboard_v2.html',
-                  resolve: {
-                    deps: ['$ocLazyLoad',
-                      function( $ocLazyLoad ){
-                        return $ocLazyLoad.load(['js/controllers/chart.js']);
-                    }]
-                  }
-              })
               .state('app.ui', {
                   url: '/ui',
-                  template: '<div ui-view class="fade-in-up"></div>',
-                  resolve: {
-                    deps: ['$ocLazyLoad',
-                      function( $ocLazyLoad ){
-                        return $ocLazyLoad.load(['js/controllers/ui-bootstrap.js']);
-                    }]
-                  }
+                  template: '<div ui-view class="fade-in-up"></div>'
               })
               .state('app.ui.buttons', {
                   url: '/buttons',
@@ -306,6 +281,23 @@ angular.module('app')
                       }]
                   }
               })
+
+              // account
+              .state('app.account', {
+                  url: '/account',
+                  template: '<div ui-view class="fade-in-down"></div>'
+              })
+              .state('app.account.settings', {
+                  url: '/settings',
+                  templateUrl: 'tpl/account_settings.html',
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['js/controllers/settings.js'] );
+                      }]
+                  }
+              })
+
               // pages
               .state('app.page', {
                   url: '/page',
@@ -335,14 +327,27 @@ angular.module('app')
                   url: '/docs',
                   templateUrl: 'tpl/docs.html'
               })
+
               // others
               .state('lockme', {
                   url: '/lockme',
                   templateUrl: 'tpl/page_lockme.html'
               })
+
+              // access
               .state('access', {
                   url: '/access',
-                  template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                  templateUrl: 'tpl/access.html'
+              })
+              .state('access.verify-email', {
+                  url: '/verify-email',
+                  templateUrl: 'tpl/page_verify_email.html',
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['js/controllers/verify-email.js'] );
+                      }]
+                  }
               })
               .state('access.signin', {
                   url: '/signin',
@@ -397,32 +402,32 @@ angular.module('app')
                   }
               })
 
-              // messages
-              .state('app.messages', {
+              // mail
+              .state('app.mail', {
                   abstract: true,
-                  url: '/messages',
-                  templateUrl: 'tpl/messages.html',
+                  url: '/mail',
+                  templateUrl: 'tpl/mail.html',
                   // use resolve to load other dependences
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad ){
-                          return uiLoad.load( ['js/app/messages/messages.js',
-                                               'js/app/messages/messages-service.js',
+                          return uiLoad.load( ['js/app/mail/mail.js',
+                                               'js/app/mail/mail-service.js',
                                                'vendor/libs/moment.min.js'] );
                       }]
                   }
               })
-              .state('app.messages.list', {
+              .state('app.mail.list', {
                   url: '/inbox/{fold}',
-                  templateUrl: 'tpl/messages.list.html'
+                  templateUrl: 'tpl/mail.list.html'
               })
-              .state('app.messages.detail', {
-                  url: '/{messagesId:[0-9]{1,4}}',
-                  templateUrl: 'tpl/messages.detail.html'
+              .state('app.mail.detail', {
+                  url: '/{mailId:[0-9]{1,4}}',
+                  templateUrl: 'tpl/mail.detail.html'
               })
-              .state('app.messages.compose', {
+              .state('app.mail.compose', {
                   url: '/compose',
-                  templateUrl: 'tpl/messages.new.html'
+                  templateUrl: 'tpl/mail.new.html'
               })
 
               .state('layout', {
@@ -519,8 +524,51 @@ angular.module('app')
                       }]
                   }
               })
-              // parent
+              .state('music', {
+                  url: '/music',
+                  templateUrl: 'tpl/music.html',
+                  controller: 'MusicCtrl',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                        function( $ocLazyLoad ){
+                          return $ocLazyLoad.load([
+                            'com.2fdevs.videogular', 
+                            'com.2fdevs.videogular.plugins.controls', 
+                            'com.2fdevs.videogular.plugins.overlayplay',
+                            'com.2fdevs.videogular.plugins.poster',
+                            'com.2fdevs.videogular.plugins.buffering',
+                            'js/app/music/ctrl.js', 
+                            'js/app/music/theme.css'
+                          ]);
+                      }]
+                  }
+              })
+              .state('music.home', {
+                  url: '/home',
+                  templateUrl: 'tpl/music.home.html'
+              })
+              .state('music.genres', {
+                  url: '/genres',
+                  templateUrl: 'tpl/music.genres.html'
+              })
+              .state('music.detail', {
+                  url: '/detail',
+                  templateUrl: 'tpl/music.detail.html'
+              })
+              .state('music.mtv', {
+                  url: '/mtv',
+                  templateUrl: 'tpl/music.mtv.html'
+              })
+              .state('music.mtvdetail', {
+                  url: '/mtvdetail',
+                  templateUrl: 'tpl/music.mtv.detail.html'
+              })
+              .state('music.playlist', {
+                  url: '/playlist/{fold}',
+                  templateUrl: 'tpl/music.playlist.html'
+              })
 
+              // parent
               .state('app.newchild', {
                   url: '/newchild',
                   templateUrl: 'tpl/parent_child_new.html',

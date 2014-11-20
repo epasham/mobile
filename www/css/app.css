@@ -4234,7 +4234,7 @@ a.text-#000000:hover {
   }
 }
 .navbar-brand img {
-  max-height: 32px;
+  max-height: 40px;
   margin-top: 0px;
   vertical-align: middle;
   margin-left: 0px;
@@ -4243,14 +4243,14 @@ a.text-#000000:hover {
   max-height: 43px;
 }
 .child-icon {
-  padding: 0 6%;
+  padding: 0 6px;
   font-size: 16px;
 }
 .child-icon:first {
-  padding: 0 6% 0 0;
+  padding: 0 6px 0 0;
 }
 .child-icon:last {
-  padding: 0  0 0 6%;
+  padding: 0  0 0 6px;
 }
 .child-icon.mdac-rx {
   font-weight: bold;
@@ -4273,4 +4273,10 @@ span.badge.badge-sm.up.bg-danger {
   font-size: 16px;
   top: -2px;
   left: -23px;
+}
+.w-xxxl {
+  width: 400px;
+}
+.app-header-fixed {
+  padding-top: 60px;
 }

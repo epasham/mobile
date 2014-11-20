@@ -1,0 +1,174 @@
+    <div class="container w-xxl w-auto-xs" ng-controller="SettingsFormController" ng-init="app.settings.container = false;">
+  <img src="img/logo.png" alt="." style="width:80%; margin:-30px auto 25px;display:block;">
+<!--   <a href class="navbar-brand block m-t">{{app.name}}</a>
+ -->  
+      <div class="m-b-lg">
+        <form name="form" class="form-validation">
+          <div class="text-danger wrapper text-center" ng-show="authError">
+              {{authError}}
+          </div>
+          <div class="list-group list-group-sm">
+            <div class="row">
+              <div class="col-sm-5">
+              <label class="control-group">Account Type</label>
+              </div>
+            </div>
+            <div class="line line-dashed b-b line-lg pull-in"></div>
+            <h4 class="text-primary">{{user.type}} Information</h4>
+            <div class="list-group-item col-xs-6">
+              <input placeholder="First Name" class="form-control no-border" ng-model="user.first_name" required>
+            </div>
+            <div class="list-group-item col-xs-6">
+              <input placeholder="Last Name" class="form-control no-border" ng-model="user.last_name" required>
+            </div>
+            <div class="list-group-item col-xs-12">
+              <input type="email" placeholder="Email" class="form-control no-border" ng-model="user.email_address" required>
+            </div>
+            <div class="list-group-item col-xs-12">
+              <input type="text" placeholder="Home Phone" class="form-control no-border" ng-model="user.home_phone" required>
+            </div>
+            <div class="list-group-item col-xs-12">
+              <input type="text" placeholder="Cell Phone" class="form-control no-border" ng-model="user.cell_phone" required>
+            </div>
+            <div class="list-group-item col-xs-12">
+              <input type="text" placeholder="Home Address" class="form-control no-border" ng-model="user.home_address" required>
+            </div>
+            <div class="list-group-item col-xs-8">
+              <select class="form-control w-sm" ng-model="user.home_state">
+                <option value="" disabled selected>State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TX">Texas</option>
+                <option value="TN">Tennessee</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+            <div class="list-group-item col-xs-4">
+              <input placeholder="Zip" class="form-control no-border" ng-model="user.home_zip" required>
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <h4 class="text-primary">Work Information</h4>
+        <div class="list-group-item col-xs-12">
+          <input type="text" placeholder="Company Name" class="form-control no-border" ng-model="user.company_name" required>
+        </div>
+        <div class="list-group-item col-xs-12">
+          <input type="text" placeholder="Job Title" class="form-control no-border" ng-model="user.job_title" required>
+        </div>
+          <div class="list-group list-group-sm">
+            <div class="list-group-item col-xs-12">
+              <input type="text" placeholder="Company Address" class="form-control no-border" ng-model="user.work_address" required>
+            </div>
+            <div class="list-group-item col-xs-8">
+              <select class="w-md form-control" ng-model="user.work_state">
+                <option value="" disabled selected>State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TX">Texas</option>
+                <option value="TN">Tennessee</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+            <div class="list-group-item col-xs-4">
+              <input placeholder="Zip" class="form-control no-border" ng-model="user.work_zip" required>
+          </div>
+        </div>
+        <div class="list-group-item col-xs-12">
+          <input type="text" placeholder="Work Phone" class="form-control no-border" ng-model="user.work_phone" required>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="editUser()" ng-disabled='form.$invalid'>Save Changes</button>
+      </form>
+    </div>
+    <div class="text-center" ng-include="'tpl/blocks/page_footer.html'"></div>
+  </div>
