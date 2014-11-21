@@ -29,8 +29,16 @@ app.controller('FullcalendarCtrl', ['$scope', '$modal', function($scope, $modal)
       {title:'Play game', start: new Date(y, m, d - 1, 16, 0), className: ['b-l b-2x b-info'], location:'Tokyo', info:'Tokyo Game Racing'},
       {title:'Birthday Party', start: new Date(y, m, d + 1, 19, 0), end: new Date(y, m, d + 1, 22, 30), allDay: false, className: ['b-l b-2x b-primary'], location:'New York', info:'Party all day'},
       {title:'Repeating Event', start: new Date(y, m, d + 4, 16, 0), alDay: false, className: ['b-l b-2x b-warning'], location:'Home Town', info:'Repeat every day'},      
-      {title:'Click for Google', start: new Date(y, m, 28), end: new Date(y, m, 29), url: 'http://google.com/', className: ['b-l b-2x b-primary']},
-      {title:'Feed cat', start: new Date('11/12/2014  6:51:52 PM'), className: ['b-l b-2x b-info']}
+      {title:'Click for Google', start: new Date(y, m, 28), end: new Date(y, m, 29), url: 'http://google.com/', className: ['b-l b-b b-2x b-primary']},
+      {title:'Free Play', start: new Date('12/08/2014  7:00:00 AM'), end: new Date('12/08/2014  8:30:00 AM'), className: ['b-l b-b b-2x b-info']},
+      {title:'Breakfast', start: new Date('12/08/2014  8:30:00 AM'), end: new Date('12/08/2014  9:00:00 AM'), className: ['b-l b-b b-2x b-success']},
+      {title:'Reading', start: new Date('12/08/2014  9:00:00 AM'), end: new Date('12/08/2014  10:00:00 AM'), className: ['b-l b-b b-2x b-warning']},
+      {title:'Quiet Time', start: new Date('12/08/2014  10:00:00 AM'), end: new Date('12/08/2014  10:30:00 AM'), className: ['b-l b-b b-2x b-info']},
+      {title:'Snack', start: new Date('12/08/2014  10:30:00 AM'), end: new Date('12/08/2014  10:45:00 AM'), className: ['b-l b-2x b-b b-success']},
+      {title:'Science Adventure', start: new Date('12/08/2014  10:45:00 AM'), end: new Date('12/08/2014  11:30:00 AM'), className: ['b-l b-b b-2x b-info']},
+      {title:'Lunch', start: new Date('12/08/2014  11:30:00 AM'), end: new Date('12/08/2014  12:00:00 PM'), className: ['b-l b-b b-2x b-success']},
+      {title:'Art', start: new Date('12/08/2014  12:00:00 PM'), end: new Date('12/08/2014  1:00:00 PM'), className: ['b-l b-b b-2x b-warning']},
+      {title:'Soccer', start: new Date('12/08/2014  1:00:00 PM'), end: new Date('12/08/2014  2:00:00 PM'), className: ['b-l b-b b-2x b-info']}
     ];
 
     /* alert on dayClick */
