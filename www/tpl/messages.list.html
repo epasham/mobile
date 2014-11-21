@@ -1,5 +1,5 @@
 
-<div ng-controller="MailListCtrl">
+<div ng-controller="MessageListCtrl">
   <!-- header -->
   <div class="wrapper bg-light lter b-b">
     <div class="btn-group pull-right">
@@ -26,17 +26,17 @@
 
   <!-- list -->
   <ul class="list-group list-group-lg no-radius m-b-none m-t-n-xxs">
-    <li ng-repeat="mail in mails | filter:fold" ng-class="labelClass(mail.label)" class="list-group-item clearfix b-l-3x">
+    <li ng-repeat="message in messages | filter:fold" ng-class="labelClass(message.label)" class="list-group-item clearfix b-l-3x">
       <a ui-sref="app.page.profile" class="avatar thumb pull-left m-r">
-        <img ng-src="{{mail.avatar}}">
+        <img ng-src="{{message.avatar}}">
       </a>
       <div class="pull-right text-sm text-muted">
-        <span class="hidden-xs">{{ mail.date | fromNow }}</span>
-        <i class="fa fa-paperclip ng-hide m-l-sm" ng-show="{{mail.attach}}"></i>
+        <span class="hidden-xs">{{ message.date | fromNow }}</span>
+        <i class="fa fa-paperclip ng-hide m-l-sm" ng-show="{{message.attach}}"></i>
       </div>
       <div class="clear">
-        <div><a ui-sref="app.messages.detail({mailId:mail.id})" class="text-md">{{mail.subject}}</a><span class="label bg-light m-l-sm">{{mail.label}}</span></div>
-        <div class="text-ellipsis m-t-xs">{{mail.content | limitTo:100}}</div>
+        <div><a ui-sref="app.messages.detail({messageId:message.id})" class="text-md">{{message.subject}}</a><span class="label bg-light m-l-sm">{{message.label}}</span></div>
+        <div class="text-ellipsis m-t-xs">{{message.content | limitTo:100}}</div>
       </div>      
     </li>
   </ul>

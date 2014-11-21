@@ -58,6 +58,9 @@
 .mdac-teddy:before {
 	content: "\e603";
 }
+.mdac-quiet:before {
+	content: "\e603";
+}
 .mdac-bottle:before {
 	content: "\e604";
 }
@@ -68,6 +71,9 @@
 	content: "\e606";
 }
 .mdac-stackingtoy:before {
+	content: "\e607";
+}
+.mdac-playing:before {
 	content: "\e607";
 }
 .mdac-diaper:before {
@@ -86,6 +92,9 @@
 	content: "\e60c";
 }
 .mdac-onesie:before {
+	content: "\e60d";
+}
+.mdac-change:before {
 	content: "\e60d";
 }
 .mdac-crib:before {
@@ -109,7 +118,7 @@
 .mdac-crying:before {
 	content: "\e614";
 }
-.mdac-quiet:before {
+.mdac-calm:before {
 	content: "\e615";
 }
 .mdac-loud:before {

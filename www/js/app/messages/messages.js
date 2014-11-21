@@ -1,4 +1,4 @@
-app.controller('MailCtrl', ['$scope', function($scope) {
+app.controller('MessageCtrl', ['$scope', function($scope) {
   $scope.folds = [
     {name: 'Inbox', filter:''},
     {name: 'Starred', filter:'starred'},
@@ -37,29 +37,29 @@ app.controller('MailCtrl', ['$scope', function($scope) {
 
 }]);
 
-app.controller('MailListCtrl', ['$scope', 'mails', '$stateParams', function($scope, mails, $stateParams) {
+app.controller('MessageListCtrl', ['$scope', 'messages', '$stateParams', function($scope, messages, $stateParams) {
   $scope.fold = $stateParams.fold;
-  mails.all().then(function(mails){
-    $scope.mails = mails;
+  messages.all().then(function(messages){
+    $scope.messages = messages;
   });
 }]);
 
-app.controller('MailDetailCtrl', ['$scope', 'mails', '$stateParams', function($scope, mails, $stateParams) {
-  mails.get($stateParams.mailId).then(function(mail){
-    $scope.mail = mail;
+app.controller('MessageDetailCtrl', ['$scope', 'messages', '$stateParams', function($scope, messages, $stateParams) {
+  messages.get($stateParams.messageId).then(function(message){
+    $scope.message = message;
   })
 }]);
 
-app.controller('MailNewCtrl', ['$scope', function($scope) {
-  $scope.mail = {
+app.controller('MessageNewCtrl', ['$scope', function($scope) {
+  $scope.message = {
     to: '',
     subject: '',
     content: ''
   }
   $scope.tolist = [
-    {name: 'James', email:'james@gmail.com'},
-    {name: 'Luoris Kiso', email:'luoris.kiso@hotmail.com'},
-    {name: 'Lucy Yokes', email:'lucy.yokes@gmail.com'}
+    {name: 'James', email:'james@gmessage.com'},
+    {name: 'Luoris Kiso', email:'luoris.kiso@hotmessage.com'},
+    {name: 'Lucy Yokes', email:'lucy.yokes@gmessage.com'}
   ];
 }]);
 

@@ -1,18 +1,18 @@
-// A RESTful factory for retreiving mails from 'mails.json'
-app.factory('mails', ['$http', function ($http) {
-  var path = 'js/app/mail/mails.json';
-  var mails = $http.get(path).then(function (resp) {
-    return resp.data.mails;
+// A RESTful factory for retreiving messages from 'messages.json'
+app.factory('messages', ['$http', function ($http) {
+  var path = 'js/app/messages/messages.json';
+  var messages = $http.get(path).then(function (resp) {
+    return resp.data.messages;
   });
 
   var factory = {};
   factory.all = function () {
-    return mails;
+    return messages;
   };
   factory.get = function (id) {
-    return mails.then(function(mails){
-      for (var i = 0; i < mails.length; i++) {
-        if (mails[i].id == id) return mails[i];
+    return messages.then(function(messages){
+      for (var i = 0; i < messages.length; i++) {
+        if (messages[i].id == id) return messages[i];
       }
       return null;
     })

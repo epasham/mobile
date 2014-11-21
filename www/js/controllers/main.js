@@ -58,9 +58,16 @@ angular.module('app')
                   points: 10
                 },
                 {
+                  id: 1,
+                  type: "positive",   // Boolean?
+                  name: "quiet nap",    // Event Type ID?
+                  time: 1415124826,
+                  points: 10
+                },
+                {
                   id: 2,
-                  type: "negative",
-                  name: "kicking",
+                  type: "positive",
+                  name: "playing nicely",
                   time: 1415124826,
                   points: -20
               }],
@@ -74,6 +81,13 @@ angular.module('app')
               {
                   id: 1,
                   name: "bottle",
+                  type: 1,
+                  leak_level: 3,
+                  time: 1415124826
+              },              
+              {
+                  id: 1,
+                  name: "change clothes",
                   type: 1,
                   leak_level: 3,
                   time: 1415124826
