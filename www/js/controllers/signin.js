@@ -30,7 +30,7 @@ app.controller('SigninFormController', ['$rootScope', '$scope', '$http', '$state
           });
         }
       }, function(x) {
-        $scope.authError = 'Server Error';
+        $scope.authError = x.data.msg;
       });
     };
 

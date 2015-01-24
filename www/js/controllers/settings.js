@@ -37,7 +37,7 @@ app.controller('SettingsFormController', ['$scope', '$http', '$state', 'Restangu
             $state.go('access.signin');
         }
       }, function(x) {
-        $scope.authError = $scope.response;
+        $scope.authError = $scope.response.msg;
       });
     };
 
